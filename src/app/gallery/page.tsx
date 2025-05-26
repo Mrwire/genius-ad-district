@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import EnhancedGalleryFixed from '@/components/organisms/EnhancedGalleryFixed';
+import GalleryScript from './GalleryScript';
 import EnhancedHeader from '@/components/organisms/EnhancedHeader';
 import { Footer } from '@/components/organisms/Footer';
 import { Typography } from '@/components/atoms/Typography';
@@ -60,14 +60,29 @@ export default function GalleryPage() {
         </section>
         
         {/* Gallery Section */}
-        <EnhancedGalleryFixed 
-          showFilters={true} 
-          title={{ fr: 'EXPLOREZ NOS PROJETS', en: 'EXPLORE OUR PROJECTS' }}
-          subtitle={{
-            fr: 'Filtrez par catégorie pour découvrir nos différentes réalisations',
-            en: 'Filter by category to discover our different achievements'
-          }}
-        />
+        <section className="pb-20">
+          <div className="container mx-auto px-4 relative z-10 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <Typography variant="h2" className="mb-4">
+                {locale === 'fr' ? 'EXPLOREZ NOS PROJETS' : 'EXPLORE OUR PROJECTS'}
+              </Typography>
+              
+              <Typography variant="body" color="muted" className="text-lg max-w-2xl mx-auto">
+                {locale === 'fr' 
+                  ? 'Découvrez notre portfolio de projets innovants et créatifs' 
+                  : 'Discover our portfolio of innovative and creative projects'}
+              </Typography>
+            </motion.div>
+          </div>
+          
+          {/* Nouveau composant de galerie */}
+          <GalleryScript />
+        </section>
       </main>
       
       <Footer />

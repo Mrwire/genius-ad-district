@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { client } from '@/lib/sanity';
 import { Typography } from '@/components/atoms/Typography';
 import { Button } from '@/components/atoms/Button';
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextComponents } from '@portabletext/react';
 import CaseStudyCard from '@/components/organisms/CaseStudyCard';
 import Link from 'next/link';
 import NissanCaseStudy from '@/components/templates/NissanCaseStudy';
@@ -130,55 +130,53 @@ function getSubsidiaryTheme(slug?: string): 'default' | 'mps' | 'labrigad' | 'ga
 }
 
 // Custom components for the PortableText renderer
-const portableTextComponents = {
+const portableTextComponents: PortableTextComponents = {
   types: {
-    image: ({ value }: { value: any }) => {
-      return (
-        <div className="my-8 relative rounded-lg overflow-hidden">
-          <Image
-            src={value.asset.url}
-            alt={value.alt || ''}
-            width={value.asset.metadata.dimensions.width}
-            height={value.asset.metadata.dimensions.height}
-            className="object-cover"
-          />
-          {value.caption && (
-            <div className="mt-2 text-sm text-gray-500 italic">
-              {value.caption}
-            </div>
-          )}
-        </div>
-      );
-    },
+    image: ({ value }: { value: any }) => (
+      <div className="my-8 relative rounded-lg overflow-hidden">
+        <Image
+          src={value.asset.url}
+          alt={value.alt || ''}
+          width={value.asset.metadata.dimensions.width}
+          height={value.asset.metadata.dimensions.height}
+          className="object-cover"
+        />
+        {value.caption && (
+          <div className="mt-2 text-sm text-gray-500 italic">
+            {value.caption}
+          </div>
+        )}
+      </div>
+    ),
   },
   block: {
-    h2: ({ children }: { children: React.ReactNode }) => (
+    h2: ({ children }) => (
       <Typography variant="h2" className="text-3xl font-bold mt-12 mb-6">
         {children}
       </Typography>
     ),
-    h3: ({ children }: { children: React.ReactNode }) => (
+    h3: ({ children }) => (
       <Typography variant="h3" className="text-2xl font-semibold mt-8 mb-4">
         {children}
       </Typography>
     ),
-    normal: ({ children }: { children: React.ReactNode }) => (
+    normal: ({ children }) => (
       <Typography variant="body" className="mb-6 text-gray-700 leading-relaxed">
         {children}
       </Typography>
     ),
-    blockquote: ({ children }: { children: React.ReactNode }) => (
+    blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-gray-200 pl-4 my-6 italic text-gray-700">
         {children}
       </blockquote>
     ),
   },
   marks: {
-    link: ({ children, value }: { children: React.ReactNode; value: any }) => {
-      const rel = value.href.startsWith('/') ? undefined : 'noreferrer noopener';
+    link: ({ children, value }) => {
+      const rel = value?.href?.startsWith('/') ? undefined : 'noreferrer noopener';
       return (
         <a 
-          href={value.href} 
+          href={value?.href || '#'} 
           rel={rel} 
           className="text-blue-500 hover:underline transition-colors"
         >
@@ -186,15 +184,15 @@ const portableTextComponents = {
         </a>
       );
     },
-    strong: ({ children }: { children: React.ReactNode }) => (
+    strong: ({ children }) => (
       <strong className="font-semibold">{children}</strong>
     ),
   },
   list: {
-    bullet: ({ children }: { children: React.ReactNode }) => (
+    bullet: ({ children }) => (
       <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">{children}</ul>
     ),
-    number: ({ children }: { children: React.ReactNode }) => (
+    number: ({ children }) => (
       <ol className="list-decimal pl-6 mb-6 space-y-2 text-gray-700">{children}</ol>
     ),
   },

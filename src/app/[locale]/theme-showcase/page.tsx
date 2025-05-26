@@ -5,15 +5,14 @@ import { Button, Typography, Card } from '@/components/atoms/shadcn-adapters';
 import { useTheme } from '@/components/theme';
 
 export default function ThemeShowcasePage() {
-  const { themeName, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [activeTab, setActiveTab] = useState('components');
   
   const themes = [
-    { id: 'genius', name: 'Genius Ad District' },
-    { id: 'mps', name: 'MPS' },
-    { id: 'labrigad', name: 'Labrig\'Ad' },
-    { id: 'gamius', name: 'Gamius' },
-    { id: 'moujeleell', name: 'Mouje Leell' }
+    { id: 'light', name: 'Clair' },
+    { id: 'dark', name: 'Sombre' },
+    { id: 'system', name: 'Système' },
+    { id: 'genius', name: 'Genius Ad District' }
   ];
   
   const tabs = [
@@ -39,13 +38,13 @@ export default function ThemeShowcasePage() {
         </Typography>
         
         <div className="flex flex-wrap gap-2">
-          {themes.map((theme) => (
+          {themes.map((t) => (
             <Button
-              key={theme.id}
-              variant={themeName === theme.id ? 'primary' : 'outline'}
-              onClick={() => setTheme(theme.id)}
+              key={t.id}
+              variant={theme === t.id ? 'primary' : 'outline'}
+              onClick={() => setTheme(t.id as 'light' | 'dark' | 'genius' | 'system')}
             >
-              {theme.name}
+              {t.name}
             </Button>
           ))}
         </div>

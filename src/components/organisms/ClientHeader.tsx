@@ -8,9 +8,12 @@ import Image from 'next/image';
 
 interface ClientHeaderProps {
   user: {
-    name: string;
+    id: string;
+    name?: string | null;
+    email?: string | null;
     role: string;
-    profileImage?: string;
+    company: string;
+    profileImage?: string | null;
   };
   locale: string;
   translations: {
@@ -33,7 +36,7 @@ export default function ClientHeader({ user, locale, translations }: ClientHeade
           {/* Welcome message */}
           <div className="flex items-center">
             <Typography variant="h1" className="text-xl font-bold text-gray-900">
-              {translations.welcomeBack}, {user.name}!
+              {translations.welcomeBack}, {user.name || 'Utilisateur'}!
             </Typography>
           </div>
 
@@ -63,8 +66,8 @@ export default function ClientHeader({ user, locale, translations }: ClientHeade
                   <div className="h-8 w-8 rounded-full overflow-hidden bg-gray-100">
                     {user.profileImage ? (
                       <Image
-                        src={user.profileImage}
-                        alt={user.name}
+                        src={user.profileImage || ''}
+                        alt={user.name || 'Photo de profil'}
                         width={32}
                         height={32}
                         className="h-8 w-8 rounded-full"
@@ -72,7 +75,7 @@ export default function ClientHeader({ user, locale, translations }: ClientHeade
                     ) : (
                       <div className="h-full w-full flex items-center justify-center">
                         <span className="text-gray-600 font-medium">
-                          {user.name.charAt(0)}
+                          {user.name?.charAt(0) || 'U'}
                         </span>
                       </div>
                     )}

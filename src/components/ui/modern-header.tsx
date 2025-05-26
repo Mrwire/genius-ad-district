@@ -18,7 +18,7 @@ const navigation: Record<string, NavigationItem[]> = {
   fr: [
     { label: 'Accueil', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Projets', href: '/projects' },
+    { label: 'Projets', href: '/gallery' },
     { 
       label: 'Filiales', 
       href: '#',
@@ -34,7 +34,7 @@ const navigation: Record<string, NavigationItem[]> = {
   en: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Projects', href: '/projects' },
+    { label: 'Projects', href: '/gallery' },
     { 
       label: 'Subsidiaries', 
       href: '#',

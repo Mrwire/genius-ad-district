@@ -9,11 +9,12 @@ import Image from 'next/image';
 
 interface ClientSidebarProps {
   user: {
-    name: string;
-    email: string;
+    id: string;
+    name?: string | null;
+    email?: string | null;
     role: string;
     company: string;
-    profileImage?: string;
+    profileImage?: string | null;
   };
   locale: string;
   translations: {
@@ -140,21 +141,21 @@ export default function ClientSidebar({ user, locale, translations }: ClientSide
         <div className={`${isCollapsed ? 'mx-auto' : ''} relative w-12 h-12 rounded-full overflow-hidden bg-primary-700`}>
           {user.profileImage ? (
             <Image
-              src={user.profileImage}
-              alt={user.name}
+              src={user.profileImage || ''}
+              alt={user.name || 'Photo de profil'}
               fill
               className="object-cover"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-lg font-bold text-white">
-              {user.name.charAt(0)}
+              {user.name?.charAt(0) || 'U'}
             </div>
           )}
         </div>
         {!isCollapsed && (
           <>
             <Typography variant="body" className="text-white font-medium">
-              {user.name}
+              {user.name || 'Utilisateur'}
             </Typography>
             <Typography variant="body" className="text-primary-300 text-sm">
               {user.company}

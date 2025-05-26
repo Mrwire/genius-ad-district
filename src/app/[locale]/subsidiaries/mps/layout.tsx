@@ -17,11 +17,11 @@ export default function MPSLayout({ children }: MPSLayoutProps) {
   
   useEffect(() => {
     // Set MPS theme when the component mounts
-    setTheme('mps');
+    setTheme('light'); // Using 'light' theme as a fallback since 'mps' is not a valid theme
     
     // Reset to default theme when component unmounts
     return () => {
-      setTheme('genius');
+      setTheme('system');
     };
   }, [setTheme]);
   

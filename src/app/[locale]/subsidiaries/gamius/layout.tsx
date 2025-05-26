@@ -17,11 +17,11 @@ export default function GamiusLayout({ children }: GamiusLayoutProps) {
   
   useEffect(() => {
     // Set Gamius theme when the component mounts
-    setTheme('gamius');
+    setTheme('dark'); // Using 'dark' theme as a fallback since 'gamius' is not a valid theme
     
     // Reset to default theme when component unmounts
     return () => {
-      setTheme('genius');
+      setTheme('system');
     };
   }, [setTheme]);
   

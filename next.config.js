@@ -12,15 +12,12 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-    // Désactiver le format WebP pour accélérer le build
     formats: ['image/avif', 'image/webp'],
   },
   
   // Configuration du compilateur
   compiler: {
     styledComponents: true,
-    // Activer la minification SWC
-    swcMinify: true,
   },
   
   // Désactiver les source maps en production
@@ -34,8 +31,6 @@ const nextConfig = {
     serverComponentsExternalPackages: ['@sanity/client', 'next-sanity'],
     // Activer les transformations SWC
     forceSwcTransforms: true,
-    // Activer le cache des modules
-    swcFileReading: true,
     // Optimiser le cache des packages
     optimizePackageImports: [
       'lucide-react',
@@ -50,9 +45,12 @@ const nextConfig = {
     pagesBufferLength: 10,
   },
   
-  // Optimisation du cache Webpack
+  // Configuration SWC (remplace swcMinify)
+  swcMinify: true,
+  
+  // Configuration du cache Webpack
   webpack: (config, { isServer, dev }) => {
-    // Utiliser le cache en développement
+    // Utiliser le cache en production
     if (!isServer && !dev) {
       config.cache = {
         type: 'filesystem',

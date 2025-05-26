@@ -108,91 +108,6 @@
       "title": "Our Story",
       "subtitle": "A journey of creative innovation and strategic excellence"
     },
-    "history": {
-      "title": "Our Journey",
-      "subtitle": "Discover the key moments that shaped our agency",
-      "timeline": [
-        {
-          "year": "2015",
-          "title": "Founding of Genius Ad District",
-          "description": "Birth of our agency with a clear vision: to reinvent the Moroccan creative landscape.",
-          "image": "/images/history/fondation.jpg"
-        },
-        {
-          "year": "2017",
-          "title": "Launch of MPS Production",
-          "description": "Creation of our production division to master the entire creative value chain.",
-          "image": "/images/history/mps-launch.jpg"
-        },
-        {
-          "year": "2019",
-          "title": "Regional Expansion",
-          "description": "Opening of our Casablanca offices and launch of our first pan-African campaigns.",
-          "image": "/images/history/expansion.jpg"
-        },
-        {
-          "year": "2021",
-          "title": "Creative Innovation Award",
-          "description": "Recognition of our innovative approach in the field of experiential marketing.",
-          "image": "/images/history/prix-innovation.jpg"
-        },
-        {
-          "year": "2023",
-          "title": "Launch of GAMiUS",
-          "description": "Diversification into the gaming and immersive experiences universe.",
-          "image": "/images/history/gamius-launch.jpg"
-        }
-      ],
-      "values": {
-        "title": "Our Core Values",
-        "subtitle": "The pillars of our success",
-        "items": [
-          {
-            "title": "Creative Boldness",
-            "description": "We constantly push the boundaries of creation to deliver unique experiences.",
-            "icon": "sparkles"
-          },
-          {
-            "title": "Operational Excellence",
-            "description": "Quality and precision guide each of our achievements.",
-            "icon": "award"
-          },
-          {
-            "title": "Continuous Innovation",
-            "description": "We integrate the latest technologies to stay at the forefront of our industry.",
-            "icon": "lightbulb"
-          },
-          {
-            "title": "Client Commitment",
-            "description": "Your success is our absolute priority, at every step of the process.",
-            "icon": "users"
-          }
-        ]
-      },
-      "testimonials": {
-        "title": "Trusted By",
-        "subtitle": "Testimonials from our valued partners",
-        "items": [
-          {
-            "quote": "The Genius Ad District team transformed our brand approach with creativity and professionalism.",
-            "author": "Leila Benjelloun",
-            "role": "Marketing Director, OCP Group",
-            "image": "/images/testimonials/leila-benjelloun.jpg"
-          },
-          {
-            "quote": "A strategic partner who perfectly understands the challenges of the African market.",
-            "author": "Karim Belhaj",
-            "role": "CEO, Inwi",
-            "image": "/images/testimonials/karim-belhaj.jpg"
-          }
-        ]
-      },
-      "cta": {
-        "title": "Ready to write the next chapter with us?",
-        "subtitle": "Discover how we can transform your brand into an unforgettable experience.",
-        "button": "Contact Us"
-      }
-    },
     "mission": {
       "title": "Our Mission",
       "content": "Create impactful brand experiences that drive results through innovative design, strategic thinking, and cutting-edge technology."
@@ -209,15 +124,11 @@
       },
       "excellence": {
         "title": "Excellence",
-        "description": "We aim for the highest quality in everything we do."
+        "description": "We strive for the highest quality in everything we do."
       },
       "collaboration": {
         "title": "Collaboration",
         "description": "We work together with our clients to achieve remarkable results."
-      },
-      "integrity": {
-        "title": "Integrity",
-        "description": "We maintain honesty and transparency in all our relationships."
       }
     },
     "team": {
@@ -226,7 +137,7 @@
       "positions": {
         "ceo": "Chief Executive Officer",
         "cco": "Chief Creative Officer",
-        "cto": "Chief Technical Officer",
+        "cto": "Chief Technology Officer",
         "cmo": "Chief Marketing Officer",
         "director": "Creative Director",
         "manager": "Project Manager",
@@ -246,17 +157,17 @@
         {
           "year": "2017",
           "title": "Expansion",
-          "description": "Launch of our first subsidiary, MPS, focused on strategic marketing."
+          "description": "Launched our first subsidiary, MPS, focused on strategic marketing."
         },
         {
           "year": "2019",
           "title": "Growth",
-          "description": "Addition of LABRIG'Ad and Gamius to our family of specialized agencies."
+          "description": "Added LABRIG'Ad and Gamius to our family of specialized agencies."
         },
         {
           "year": "2021",
           "title": "Innovation",
-          "description": "Establishment of Mouje-Leell to complete our full-service offering."
+          "description": "Established Mouje-Leell to complete our full-service offering."
         },
         {
           "year": "2023",
@@ -1857,6 +1768,10 @@
       "subtitle": "Your ambition deserves a team that shares your vision and has the expertise to bring it to life.",
       "button": "DISCUSS YOUR PROJECT"
     }
+  },
+  "Gallery": {
+    "title": "PROJECT GALLERY",
+    "subtitle": "Discover our portfolio of creative and innovative experiences"
   },
   "Contact": {
     "Meta": {

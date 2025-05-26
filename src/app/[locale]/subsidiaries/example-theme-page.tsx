@@ -59,7 +59,6 @@ export default function ExampleThemePage() {
                     <Button variant="ghost">Ghost</Button>
                     <Button variant="link">Link</Button>
                     <Button variant="danger">Danger</Button>
-                    <Button variant="success">Success</Button>
                   </div>
                 </div>
               </div>
@@ -100,16 +99,16 @@ export default function ExampleThemePage() {
               </Typography>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="rounded-md bg-primary p-4 text-primary-foreground">
-                  <Typography variant="label">Primary</Typography>
+                  <Typography variant="body">Primary</Typography>
                 </div>
                 <div className="rounded-md bg-secondary p-4 text-secondary-foreground">
-                  <Typography variant="label">Secondary</Typography>
+                  <Typography variant="body">Secondary</Typography>
                 </div>
                 <div className="rounded-md bg-accent p-4 text-accent-foreground">
-                  <Typography variant="label">Accent</Typography>
+                  <Typography variant="body">Accent</Typography>
                 </div>
                 <div className="rounded-md bg-muted p-4 text-muted-foreground">
-                  <Typography variant="label">Muted</Typography>
+                  <Typography variant="body">Muted</Typography>
                 </div>
               </div>
             </div>

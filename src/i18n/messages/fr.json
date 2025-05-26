@@ -50,91 +50,6 @@
       "title": "Notre Histoire",
       "subtitle": "Un parcours d'innovation créative et d'excellence stratégique"
     },
-    "history": {
-      "title": "Notre Parcours",
-      "subtitle": "Découvrez les moments clés qui ont façonné notre agence",
-      "timeline": [
-        {
-          "year": "2015",
-          "title": "Fondation de Genius Ad District",
-          "description": "Naissance de notre agence avec une vision claire : réinventer le paysage créatif marocain.",
-          "image": "/images/history/fondation.jpg"
-        },
-        {
-          "year": "2017",
-          "title": "Lancement de MPS Production",
-          "description": "Création de notre pôle production pour maîtriser toute la chaîne de valeur créative.",
-          "image": "/images/history/mps-launch.jpg"
-        },
-        {
-          "year": "2019",
-          "title": "Expansion régionale",
-          "description": "Ouverture de nos bureaux à Casablanca et lancement de nos premières campagnes panafricaines.",
-          "image": "/images/history/expansion.jpg"
-        },
-        {
-          "year": "2021",
-          "title": "Prix de l'Innovation Créative",
-          "description": "Reconnaissance de notre approche novatrice dans le domaine du marketing expérientiel.",
-          "image": "/images/history/prix-innovation.jpg"
-        },
-        {
-          "year": "2023",
-          "title": "Lancement de GAMiUS",
-          "description": "Diversification dans l'univers du gaming et des expériences immersives.",
-          "image": "/images/history/gamius-launch.jpg"
-        }
-      ],
-      "values": {
-        "title": "Nos Valeurs Fondamentales",
-        "subtitle": "Les piliers de notre succès",
-        "items": [
-          {
-            "title": "Audace Créative",
-            "description": "Nous repoussons sans cesse les limites de la création pour offrir des expériences uniques.",
-            "icon": "sparkles"
-          },
-          {
-            "title": "Excellence Opérationnelle",
-            "description": "La qualité et la précision guident chacune de nos réalisations.",
-            "icon": "award"
-          },
-          {
-            "title": "Innovation Continue",
-            "description": "Nous intégrons les dernières technologies pour rester à la pointe de notre industrie.",
-            "icon": "lightbulb"
-          },
-          {
-            "title": "Engagement Client",
-            "description": "Votre succès est notre priorité absolue, à chaque étape du processus.",
-            "icon": "users"
-          }
-        ]
-      },
-      "testimonials": {
-        "title": "Ils Nous Font Confiance",
-        "subtitle": "Témoignages de nos précieux partenaires",
-        "items": [
-          {
-            "quote": "L'équipe de Genius Ad District a transformé notre approche de marque avec créativité et professionnalisme.",
-            "author": "Leila Benjelloun",
-            "role": "Directrice Marketing, Groupe OCP",
-            "image": "/images/testimonials/leila-benjelloun.jpg"
-          },
-          {
-            "quote": "Un partenaire stratégique qui comprend parfaitement les enjeux du marché africain.",
-            "author": "Karim Belhaj",
-            "role": "PDG, Inwi",
-            "image": "/images/testimonials/karim-belhaj.jpg"
-          }
-        ]
-      },
-      "cta": {
-        "title": "Prêt à écrire le prochain chapitre avec nous ?",
-        "subtitle": "Découvrez comment nous pouvons transformer votre marque en une expérience inoubliable.",
-        "button": "Contactez-nous"
-      }
-    },
     "mission": {
       "title": "Notre Mission",
       "content": "Créer des expériences de marque impactantes qui génèrent des résultats grâce à un design innovant, une réflexion stratégique et une technologie de pointe."
@@ -1852,6 +1767,10 @@
       "subtitle": "Votre ambition mérite une équipe qui partage votre vision et possède l'expertise pour la concrétiser.",
       "button": "DISCUTER DE VOTRE PROJET"
     }
+  },
+  "Gallery": {
+    "title": "GALERIE DE PROJETS",
+    "subtitle": "Découvrez notre portfolio d'expériences créatives et innovantes"
   },
   "Contact": {
     "Meta": {

@@ -135,7 +135,7 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
     },
     {
       name: locale === 'fr' ? 'Projets' : 'Projects',
-      url: `/${locale}/projets`,
+      url: `/${locale}/gallery`,
       icon: Layers
     },
   ];

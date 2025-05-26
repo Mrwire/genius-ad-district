@@ -38,7 +38,12 @@ const footerLinks = [
   },
 ];
 
-export const AppleFooter = () => {
+interface AppleFooterProps {
+  variant?: string;
+  subsidiaryColor?: string;
+}
+
+export const AppleFooter: React.FC<AppleFooterProps> = ({ variant, subsidiaryColor }) => {
   return (
     <footer className="border-t border-white/10 bg-black text-white">
       <div className="mx-auto max-w-7xl px-6 py-12">
