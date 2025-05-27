@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import GalleryScript from './GalleryScript';
 import EnhancedHeader from '@/components/organisms/EnhancedHeader';
 import { Footer } from '@/components/organisms/Footer';
 import { Typography } from '@/components/atoms/Typography';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
+import EnhancedGallery from '@/components/organisms/EnhancedGallery';
 
 export default function GalleryPage() {
   const locale = useLocale() as 'fr' | 'en';
@@ -59,7 +59,14 @@ export default function GalleryPage() {
           />
         </section>
         
-        {/* Gallery Section */}
+        {/* Enhanced Gallery Component */}
+        <EnhancedGallery 
+          showFilters={true}
+          title={locale === 'fr' ? 'NOS RÉALISATIONS' : 'OUR WORKS'}
+          subtitle={locale === 'fr' 
+            ? 'Découvrez nos projets récents et comment nous transformons les marques' 
+            : 'Discover our recent projects and how we transform brands'}
+        />
         <section className="pb-20">
           <div className="container mx-auto px-4 relative z-10 mb-12">
             <motion.div

@@ -1,8 +1,11 @@
-import { getTranslations } from 'next-intl/server';
-import GalleryScript from '@/app/gallery/GalleryScript';
+'use client';
 
-export default async function GalleryPage() {
-  const t = await getTranslations('Gallery');
+import React from 'react';
+import { useTranslations } from 'next-intl';
+import EnhancedGallery from '@/components/organisms/EnhancedGallery';
+
+export default function GalleryPage() {
+  const t = useTranslations('Gallery');
   
   return (
     <div className="min-h-screen bg-black text-white">
@@ -29,10 +32,12 @@ export default async function GalleryPage() {
           <div className="absolute left-4 right-4 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         </section>
         
-        {/* Gallery Section */}
-        <section className="pb-20">
-          <GalleryScript />
-        </section>
+        {/* Enhanced Gallery Component */}
+        <EnhancedGallery 
+          showFilters={true}
+          title={t('worksTitle')}
+          subtitle={t('worksSubtitle')}
+        />
       </main>
     </div>
   );
