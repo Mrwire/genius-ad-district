@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 
 // Components effectivement utilisés dans la homepage
 import { CaseStudySection } from '@/components/organisms/CaseStudySection';
-import EnhancedCTA from '@/components/organisms/EnhancedCTA';
+import { EnhancedCTA } from '@/components/organisms/EnhancedCTA';
 import FeaturedProjects from '@/components/organisms/FeaturedProjects';
 // import FeaturesSectionWithHoverEffects supprimé
 import { ModernMantraSection } from '@/components/sections/ModernMantraSection';
