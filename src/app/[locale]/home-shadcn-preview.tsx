@@ -29,11 +29,11 @@ export default function HomeShadcnPreview() {
             Votre partenaire créatif pour des solutions de communication innovantes et impactantes
           </Typography>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button variant="primary" size="large">
-              Découvrir nos services
+            <Button asChild variant="primary" size="large">
+              <a href="/services">Découvrir nos services</a>
             </Button>
-            <Button variant="outline" size="large">
-              Nos réalisations
+            <Button asChild variant="outline" size="large">
+              <a href="/gallery">Nos réalisations</a>
             </Button>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function HomeShadcnPreview() {
                     {service.description}
                   </Typography>
                   <div className="mt-4 pt-4 border-t">
-                    <Link href="#" className="text-primary font-medium hover:underline inline-flex items-center">
+                    <Link href="/services" className="text-primary font-medium hover:underline inline-flex items-center">
                       En savoir plus
                       <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />

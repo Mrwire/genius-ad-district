@@ -436,7 +436,7 @@ const FeaturedProjects = () => {
             size="lg"
             className="bg-transparent border border-white/20 text-white hover:bg-white/5 hover:border-white/30 transition-all group rounded-full px-8"
           >
-            <Link href="/projets" className="inline-flex items-center">
+            <Link href="/gallery" className="inline-flex items-center">
               <Plus className="mr-2 h-4 w-4 opacity-70" />
               <span className="font-normal">Tous nos projets</span>
             </Link>

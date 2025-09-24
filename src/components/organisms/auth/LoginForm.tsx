@@ -28,8 +28,8 @@ export default function LoginForm({ locale }: { locale: string }) {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Redirect to dashboard on success
-      router.push(`/${locale}/dashboard`);
+      // Redirect to client portal dashboard on success
+      router.push(`/${locale}/client-portal/dashboard`);
     } catch (error) {
       console.error('Login failed:', error);
     } finally {
@@ -71,7 +71,7 @@ export default function LoginForm({ locale }: { locale: string }) {
               {t('password')}
             </label>
             <Link 
-              href="/forgot-password" 
+              href={`/${locale}/auth/forgot-password`} 
               className="text-sm font-medium text-primary-600 hover:text-primary-500"
             >
               {t('forgotPassword')}?
