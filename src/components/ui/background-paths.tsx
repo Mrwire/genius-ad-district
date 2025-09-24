@@ -98,7 +98,7 @@ export function BackgroundPaths({
                         {/* CTA Button */}
                         <div className="inline-block group relative bg-gradient-to-b from-white/10 to-white/5 rounded-full overflow-hidden p-0.5 mt-4">
                             <Link
-                                href="#features"
+                                href="/services"
                                 className="flex items-center text-white font-medium text-sm rounded-full 
                                         px-5 py-2.5 transition-all duration-300 ease-in-out 
                                         bg-black hover:bg-black/80 backdrop-blur-sm 

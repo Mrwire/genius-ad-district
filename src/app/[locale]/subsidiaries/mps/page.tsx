@@ -151,12 +151,12 @@ export default async function MPSPage({ params: { locale } }: PageProps) {
         theme="mps"
       />
       
-      <section className="bg-gray-100 py-16">
+      <section className="bg-gray-100 py-16" id="contact">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">{t('microCta.title')}</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">{t('microCta.subtitle')}</p>
           <a 
-            href="#contact" 
+            href={`/${locale}/contact`} 
             className="bg-mps text-white px-8 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors inline-block"
           >
             {t('cta')}

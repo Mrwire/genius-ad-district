@@ -809,7 +809,7 @@ export default function ShadcnExpertiseGrid() {
             Genius Ad District vous offre la puissance d'une agence full-service avec l'expertise de partenaires spécialisés, tous sous un même toit. Fini les expériences d'agences fragmentées.
           </p>
           <Link 
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-300 font-medium"
           >
             Discutez de votre projet avec nous

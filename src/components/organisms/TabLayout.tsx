@@ -111,7 +111,7 @@ export default function TabLayout() {
                     </div>
                   ))}
                 </div>
-                <a href="#" className={`${styles['tab-content__button']}`}>
+                <a href="/contact" className={`${styles['tab-content__button']}`}>
                   <p className={styles['content-p']}>Become a member</p>
                   <div className={styles['content-button__bg']}></div>
                 </a>

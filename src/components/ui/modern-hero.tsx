@@ -182,7 +182,7 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ locale = 'fr' }) => {
             }}
           >
             <Link
-              href="#discover"
+              href="/services"
               className={cn(
                 "inline-flex items-center justify-center px-6 py-3",
                 "bg-gray-200 hover:bg-white text-black font-medium",

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
@@ -11,20 +11,20 @@ const footerLinks = [
   {
     title: 'Entreprise',
     links: [
-      { label: 'Notre histoire', href: '/notre-histoire' },
-      { label: 'Nos valeurs', href: '/nos-valeurs' },
-      { label: 'Notre équipe', href: '/notre-equipe' },
-      { label: 'Expertise', href: '/expertise' },
-      { label: 'Projets', href: '/projets' },
+      { label: 'Notre histoire', href: '/about' },
+      { label: 'Nos valeurs', href: '/about#values' },
+      { label: 'Notre équipe', href: '/about#team' },
+      { label: 'Expertise', href: '/services' },
+      { label: 'Projets', href: '/gallery' },
     ],
   },
   {
     title: 'Filiales',
     links: [
-      { label: 'MPS', href: '/mps' },
-      { label: 'Labrigad', href: '/labrigad' },
-      { label: 'Gamius', href: '/gamius' },
-      { label: 'Genius Lab', href: '/genius-lab' },
+      { label: 'MPS', href: '/filiales/mps' },
+      { label: 'Labrigad', href: '/filiales/labrigad' },
+      { label: 'Gamius', href: '/filiales/gamius' },
+      { label: 'Mouje-Leell', href: '/filiales/moujeleell' },
     ],
   },
   {

@@ -193,7 +193,7 @@ export const UiComponentShowcase: React.FC = () => {
           <div>
             <Typography variant="h6" className="mb-4">Underline Style</Typography>
             <div className="flex gap-6">
-              <AnimatedNavLink href="#" animationStyle="underline" subsidiary={activeSubsidiary || undefined}>
+              <AnimatedNavLink href="/" animationStyle="underline" subsidiary={activeSubsidiary || undefined}>
                 Home
               </AnimatedNavLink>
               <AnimatedNavLink href="/about" animationStyle="underline" subsidiary={activeSubsidiary || undefined}>
@@ -210,7 +210,7 @@ export const UiComponentShowcase: React.FC = () => {
           <div>
             <Typography variant="h6" className="mb-4">Highlight Style</Typography>
             <div className="flex gap-4">
-              <AnimatedNavLink href="#" animationStyle="highlight" subsidiary={activeSubsidiary || undefined}>
+              <AnimatedNavLink href="/" animationStyle="highlight" subsidiary={activeSubsidiary || undefined}>
                 Home
               </AnimatedNavLink>
               <AnimatedNavLink href="/about" animationStyle="highlight" subsidiary={activeSubsidiary || undefined}>

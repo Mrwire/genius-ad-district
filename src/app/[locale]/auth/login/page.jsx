@@ -49,7 +49,7 @@ export default async function LoginPage({ params: { locale } }) {
           <div className="mt-6 text-center text-sm text-gray-500">
             <p>
               {t('needHelp')}{' '}
-              <a href="#" className="text-black font-medium hover:underline">
+              <a href={`/${locale}/contact`} className="text-black font-medium hover:underline">
                 {t('contactSupport')}
               </a>
             </p>
