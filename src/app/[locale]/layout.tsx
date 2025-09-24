@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { locales } from '@/i18n/config';
 import { generateI18nMetadata } from '@/lib/i18n-metadata';
 import SkipNavigation from '@/components/atoms/SkipNavigation';
+import MainNavigation from '@/components/organisms/MainNavigation';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      <MainNavigation locale={locale} />
       <SkipNavigation />
       <div id="main-content" tabIndex={-1}>
         {children}
