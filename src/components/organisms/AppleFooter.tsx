@@ -2,43 +2,49 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-
-// Garder uniquement les liens nécessaires et actifs
-const footerLinks = [
-  {
-    title: 'Entreprise',
-    links: [
-      { label: 'Notre histoire', href: '/notre-histoire' },
-      { label: 'Nos valeurs', href: '/nos-valeurs' },
-      { label: 'Notre équipe', href: '/notre-equipe' },
-      { label: 'Expertise', href: '/expertise' },
-      { label: 'Projets', href: '/projets' },
-    ],
-  },
-  {
-    title: 'Filiales',
-    links: [
-      { label: 'MPS', href: '/mps' },
-      { label: 'Labrigad', href: '/labrigad' },
-      { label: 'Gamius', href: '/gamius' },
-      { label: 'Genius Lab', href: '/genius-lab' },
-    ],
-  },
-  {
-    title: 'Légal',
-    links: [
-      { label: 'Mentions légales', href: '/mentions-legales' },
-      { label: 'Politique de confidentialité', href: '/confidentialite' },
-      { label: 'Politique de cookies', href: '/cookies' },
-      { label: 'CGV', href: '/cgv' },
-    ],
-  },
-];
+import { useLocale } from 'next-intl';
 
 export const AppleFooter = () => {
+  const locale = useLocale();
+  const localizedLocale = locale === 'en' ? 'en' : 'fr';
+
+  const localizedPath = (path: string) => `/${localizedLocale}${path}`;
+
+  const footerLinks = [
+    {
+      title: localizedLocale === 'fr' ? 'Entreprise' : 'Company',
+      links: [
+        { label: localizedLocale === 'fr' ? 'Notre histoire' : 'Our history', href: localizedPath('/notre-histoire') },
+        { label: localizedLocale === 'fr' ? 'Nos valeurs' : 'Our values', href: localizedPath('/nos-valeurs') },
+        { label: localizedLocale === 'fr' ? 'Notre équipe' : 'Our team', href: localizedPath('/notre-equipe') },
+        { label: localizedLocale === 'fr' ? 'Expertise' : 'Expertise', href: localizedPath('/expertise') },
+        { label: localizedLocale === 'fr' ? 'Projets' : 'Projects', href: localizedPath('/projets') },
+      ],
+    },
+    {
+      title: localizedLocale === 'fr' ? 'Filiales' : 'Subsidiaries',
+      links: [
+        { label: 'MPS', href: localizedPath('/filiales/mps') },
+        { label: "LABRIG'Ad", href: localizedPath('/filiales/labrigad') },
+        { label: 'Gamius', href: localizedPath('/filiales/gamius') },
+        { label: 'Mouje & Leell', href: localizedPath('/filiales/moujeleell') },
+      ],
+    },
+    {
+      title: localizedLocale === 'fr' ? 'Légal' : 'Legal',
+      links: [
+        { label: localizedLocale === 'fr' ? 'Mentions légales' : 'Legal notice', href: localizedPath('/mentions-legales') },
+        {
+          label: localizedLocale === 'fr' ? 'Politique de confidentialité' : 'Privacy policy',
+          href: localizedPath('/confidentialite'),
+        },
+        { label: localizedLocale === 'fr' ? 'Politique de cookies' : 'Cookie policy', href: localizedPath('/cookies') },
+        { label: localizedLocale === 'fr' ? 'CGV' : 'Terms of sale', href: localizedPath('/cgv') },
+      ],
+    },
+  ];
+
   return (
     <footer className="border-t border-white/10 bg-black text-white">
       <div className="mx-auto max-w-7xl px-6 py-12">
