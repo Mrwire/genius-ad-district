@@ -3,7 +3,7 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { Info, Building2, Briefcase, Code2, Layers, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/navigation';
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Link } from '@/navigation';
