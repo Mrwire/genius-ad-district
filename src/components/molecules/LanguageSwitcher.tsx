@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/navigation';
 import { Link } from '@/navigation';
 import { Button } from '@/components/atoms/Button';
 
