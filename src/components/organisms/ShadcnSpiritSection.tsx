@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useAnimation, useInView, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import confetti from 'canvas-confetti';
@@ -11,7 +11,9 @@ export default function ShadcnSpiritSection() {
   const confettiCanvasRef = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [confettiColors, setConfettiColors] = useState<string[]>([]);
+  const [isCoarsePointer, setIsCoarsePointer] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const isMobileLayout = isSmallScreen || isCoarsePointer;
   
   useEffect(() => {
     if (isInView) {
@@ -20,30 +22,85 @@ export default function ShadcnSpiritSection() {
   }, [controls, isInView]);
 
   // Define ESPRIT - Each letter represents a value
-  const espritLetters = [
-    { letter: 'E', word: 'Excellence', color: '#FF3366', description: 'Notre exigence quotidienne' },
-    { letter: 'S', word: 'Sur-mesure', color: '#33CCFF', description: 'Pour répondre parfaitement à vos besoins' },
-    { letter: 'P', word: 'Passion', color: '#FFCC33', description: 'Le moteur de notre créativité' },
-    { letter: 'R', word: 'Respect', color: '#66FF99', description: 'La base de nos relations' },
-    { letter: 'I', word: 'Innovation', color: '#CC66FF', description: 'Pour rester à la pointe' },
-    { letter: 'T', word: 'Technologie', color: '#FF9933', description: 'Un atout pour concrétiser vos idées' }
-  ];
+  const espritLetters = useMemo(
+    () => [
+      { letter: 'E', word: 'Excellence', color: '#FF3366', description: 'Notre exigence quotidienne' },
+      { letter: 'S', word: 'Sur-mesure', color: '#33CCFF', description: 'Pour répondre parfaitement à vos besoins' },
+      { letter: 'P', word: 'Passion', color: '#FFCC33', description: 'Le moteur de notre créativité' },
+      { letter: 'R', word: 'Respect', color: '#66FF99', description: 'La base de nos relations' },
+      { letter: 'I', word: 'Innovation', color: '#CC66FF', description: 'Pour rester à la pointe' },
+      { letter: 'T', word: 'Technologie', color: '#FF9933', description: 'Un atout pour concrétiser vos idées' }
+    ],
+    []
+  );
 
   // Track mouse position for magnetic effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const coarseQuery = window.matchMedia('(pointer: coarse)');
+    const updateCoarsePointer = (event?: MediaQueryListEvent) => {
+      setIsCoarsePointer(event ? event.matches : coarseQuery.matches);
+    };
+
+    updateCoarsePointer();
+
+    if (typeof coarseQuery.addEventListener === 'function') {
+      coarseQuery.addEventListener('change', updateCoarsePointer);
+      return () => coarseQuery.removeEventListener('change', updateCoarsePointer);
+    }
+
+    coarseQuery.addListener(updateCoarsePointer);
+    return () => coarseQuery.removeListener(updateCoarsePointer);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const smallScreenQuery = window.matchMedia('(max-width: 768px)');
+    const updateSmallScreen = (event?: MediaQueryListEvent) => {
+      setIsSmallScreen(event ? event.matches : smallScreenQuery.matches);
+    };
+
+    updateSmallScreen();
+
+    if (typeof smallScreenQuery.addEventListener === 'function') {
+      smallScreenQuery.addEventListener('change', updateSmallScreen);
+      return () => smallScreenQuery.removeEventListener('change', updateSmallScreen);
+    }
+
+    smallScreenQuery.addListener(updateSmallScreen);
+    return () => smallScreenQuery.removeListener(updateSmallScreen);
+  }, []);
+
+  useEffect(() => {
+    if (isMobileLayout && activeIndex === null) {
+      setActiveIndex(0);
+    }
+  }, [isMobileLayout, activeIndex, espritLetters]);
+
+  useEffect(() => {
+    if (isMobileLayout) {
+      return;
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isMobileLayout]);
 
   // Magnetic effect calculation for letters
   const calculateMagneticValues = (index: number, bounds: DOMRect) => {
@@ -150,10 +207,19 @@ export default function ShadcnSpiritSection() {
   };
 
   // Handle letter hover
-  const handleLetterHover = (index: number) => {
+  const handleLetterInteraction = (index: number, shouldTriggerConfetti: boolean) => {
     setActiveIndex(index);
-    setConfettiColors([espritLetters[index].color, '#FFFFFF', '#000000']);
-    triggerConfetti(index);
+    if (!isMobileLayout && shouldTriggerConfetti) {
+      triggerConfetti(index);
+    }
+  };
+
+  const handleLetterHover = (index: number) => {
+    handleLetterInteraction(index, true);
+  };
+
+  const handleLetterClick = (index: number) => {
+    handleLetterInteraction(index, !isMobileLayout);
   };
 
   // Animation variants
@@ -330,31 +396,40 @@ export default function ShadcnSpiritSection() {
         {/* Main content area */}
         <div className="relative mb-24">
           {/* Animated ESPRIT letters with floating particles */}
-          <div className="flex justify-center items-center space-x-2 md:space-x-5 mb-16 perspective-[1000px]">
+          <div
+            className={cn(
+              'justify-center items-center mb-16 perspective-[1000px]',
+              isMobileLayout ? 'flex flex-wrap gap-4' : 'flex space-x-2 md:space-x-5'
+            )}
+          >
             {espritLetters.map((item, index) => {
               // For each letter, create refs to track its position for magnetic effect
               const letterRef = useRef<HTMLDivElement>(null);
-              const [magneticValues, setMagneticValues] = useState({ moveX: 0, moveY: 0, force: 0 });
-              
+
               // Spring animations for smooth magnetic effect
               const springX = useSpring(0, { stiffness: 150, damping: 15 });
               const springY = useSpring(0, { stiffness: 150, damping: 15 });
-              
+
               // Update magnetic values on mouse move
               useEffect(() => {
+                if (isMobileLayout) {
+                  springX.set(0);
+                  springY.set(0);
+                  return;
+                }
+
                 const updateMagneticValues = () => {
                   if (letterRef.current) {
                     const bounds = letterRef.current.getBoundingClientRect();
                     const values = calculateMagneticValues(index, bounds);
-                    setMagneticValues(values);
                     springX.set(values.moveX);
                     springY.set(values.moveY);
                   }
                 };
-                
+
                 const interval = setInterval(updateMagneticValues, 50); // Update every 50ms
                 return () => clearInterval(interval);
-              }, [index, springX, springY]);
+              }, [index, springX, springY, isMobileLayout]);
               
               // Transform values from springs
               const x = useTransform(springX, (v) => `${v}px`);
@@ -393,10 +468,21 @@ export default function ShadcnSpiritSection() {
                     variants={letterVariants}
                     initial="hidden"
                     animate="visible"
-                    whileHover="hover"
+                    whileHover={isMobileLayout ? undefined : 'hover'}
                     whileTap="tap"
-                    onHoverStart={() => handleLetterHover(index)}
-                    onHoverEnd={() => setActiveIndex(null)}
+                    onHoverStart={isMobileLayout ? undefined : () => handleLetterHover(index)}
+                    onHoverEnd={isMobileLayout ? undefined : () => setActiveIndex(null)}
+                    onClick={() => handleLetterClick(index)}
+                    onFocus={() => handleLetterInteraction(index, !isMobileLayout)}
+                    onBlur={() => !isMobileLayout && setActiveIndex(null)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        handleLetterClick(index);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
                     style={{
                       x,
                       y,
@@ -413,8 +499,8 @@ export default function ShadcnSpiritSection() {
                         : 'transparent',
                     }}
                     className={cn(
-                      "esprit-letter cursor-pointer select-none relative z-10",
-                      "text-6xl md:text-7xl lg:text-9xl font-heading font-extrabold",
+                      'esprit-letter cursor-pointer select-none relative z-10',
+                      'text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-heading font-extrabold',
                       "transition-all duration-300 ease-out px-2 rounded-xl",
                       "flex items-center justify-center"
                     )}
@@ -447,7 +533,7 @@ export default function ShadcnSpiritSection() {
           </div>
 
           {/* Word reveal container with enhanced animations */}
-          <div className="h-28 md:h-32 flex justify-center items-center">
+          <div className="min-h-[6rem] md:min-h-[8rem] flex justify-center items-center px-4 text-center">
             <AnimatePresence mode="wait">
               {activeIndex !== null && (
                 <motion.div
@@ -493,8 +579,8 @@ export default function ShadcnSpiritSection() {
                   </h3>
                   
                   {/* Description with gradient text */}
-                  <motion.p 
-                    className="text-white/80 text-lg"
+                  <motion.p
+                    className="text-white/80 text-base sm:text-lg"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
