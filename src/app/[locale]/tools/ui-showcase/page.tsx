@@ -1,3 +1,17 @@
+export const metadata = {
+  title: 'UI Components',
+  description: 'Preview of available UI components.'
+};
+
+export default function UiShowcasePage() {
+  return (
+    <main className="container mx-auto px-4 py-16">
+      <h1 className="text-3xl font-bold mb-4">UI Components</h1>
+      <p className="text-silver/80">This is a placeholder for the UI components showcase.</p>
+    </main>
+  );
+}
+
 'use client';
 
 import React, { Suspense } from 'react';

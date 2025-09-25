@@ -1,3 +1,17 @@
+export const metadata = {
+  title: 'Accessibility',
+  description: 'Accessibility tools and guidelines.'
+};
+
+export default function AccessibilityToolsPage() {
+  return (
+    <main className="container mx-auto px-4 py-16">
+      <h1 className="text-3xl font-bold mb-4">Accessibility</h1>
+      <p className="text-silver/80">This is a placeholder for accessibility tools and docs.</p>
+    </main>
+  );
+}
+
 import { useTranslations } from 'next-intl';
 import { AccessibilityShowcase } from '@/components/organisms/AccessibilityShowcase';
 import { Typography } from '@/components/atoms/Typography';
