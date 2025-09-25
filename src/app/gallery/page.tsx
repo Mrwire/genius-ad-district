@@ -6,21 +6,11 @@ import EnhancedHeader from '@/components/organisms/EnhancedHeader';
 import { Footer } from '@/components/organisms/Footer';
 import { Typography } from '@/components/atoms/Typography';
 import { motion } from 'framer-motion';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 export default function GalleryPage() {
-  const locale = useLocale() as 'fr' | 'en';
-  
-  const title = {
-    fr: 'NOTRE GALERIE',
-    en: 'OUR GALLERY'
-  };
-  
-  const subtitle = {
-    fr: 'Découvrez notre portfolio d\'œuvres créatives et nos réalisations récentes',
-    en: 'Explore our portfolio of creative works and recent achievements'
-  };
-  
+  const tGallery = useTranslations('gallery.page');
+
   return (
     <div className="min-h-screen bg-black text-white">
       <EnhancedHeader transparent={false} />
@@ -41,11 +31,11 @@ export default function GalleryPage() {
               className="max-w-4xl mx-auto text-center"
             >
               <Typography variant="h1" className="mb-6">
-                {title[locale]}
+                {tGallery('title')}
               </Typography>
-              
+
               <Typography variant="body" color="muted" className="text-xl max-w-2xl mx-auto">
-                {subtitle[locale]}
+                {tGallery('subtitle')}
               </Typography>
             </motion.div>
           </div>
@@ -60,16 +50,13 @@ export default function GalleryPage() {
         </section>
         
         {/* Gallery Section */}
-        <EnhancedGalleryFixed 
-          showFilters={true} 
-          title={{ fr: 'EXPLOREZ NOS PROJETS', en: 'EXPLORE OUR PROJECTS' }}
-          subtitle={{
-            fr: 'Filtrez par catégorie pour découvrir nos différentes réalisations',
-            en: 'Filter by category to discover our different achievements'
-          }}
+        <EnhancedGalleryFixed
+          showFilters={true}
+          titleOverride={tGallery('sectionTitle')}
+          subtitleOverride={tGallery('sectionSubtitle')}
         />
       </main>
-      
+
       <Footer />
     </div>
   );

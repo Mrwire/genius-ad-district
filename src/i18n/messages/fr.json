@@ -1,12 +1,28 @@
 {
   "common": {
     "languageName": "Français",
-    "switchLanguage": "Passer à l'anglais",
+    "switchLanguage": "Changer de langue",
+    "languageSwitcher": {
+      "switchToEnglish": "Passer en anglais",
+      "switchToFrench": "Passer en français",
+      "short": {
+        "en": "EN",
+        "fr": "FR"
+      },
+      "languageNames": {
+        "en": "Anglais",
+        "fr": "Français"
+      },
+      "current": "Langue actuelle : {language}"
+    },
     "navigation": {
       "home": "Accueil",
       "about": "À propos",
       "caseStudies": "Études de cas",
       "subsidiaries": "Filiales",
+      "services": "Services",
+      "projects": "Projets",
+      "gallery": "Galerie",
       "contact": "Contact"
     },
     "footer": {
@@ -32,6 +48,10 @@
       "cancel": "Annuler",
       "save": "Enregistrer"
     },
+    "accessibility": {
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu"
+    },
     "contact": {
       "title": "Contact",
       "form": {
@@ -41,6 +61,93 @@
         "subject": "Sujet",
         "phone": "Téléphone"
       }
+    }
+  },
+  "navbar": {
+    "menu": {
+      "about": {
+        "label": "À propos",
+        "links": {
+          "history": "Notre histoire",
+          "team": "Notre équipe",
+          "values": "Nos valeurs",
+          "expertise": "Expertises"
+        }
+      },
+      "subsidiaries": {
+        "label": "Filiales",
+        "links": {
+          "mps": "MPS",
+          "labrigad": "LABRIG'Ad",
+          "gamius": "Gamius",
+          "moujeleell": "Mouje & Leell"
+        }
+      },
+      "services": {
+        "label": "Services"
+      },
+      "projects": {
+        "label": "Projets"
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "company": {
+        "title": "Entreprise"
+      },
+      "subsidiaries": {
+        "title": "Filiales"
+      },
+      "legal": {
+        "title": "Légal",
+        "links": {
+          "legalNotice": "Mentions légales",
+          "privacy": "Politique de confidentialité",
+          "cookies": "Politique de cookies",
+          "terms": "Conditions générales"
+        }
+      }
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "bottom": {
+      "copyright": "© {year} Genius Ad District. Tous droits réservés."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "AGENCE DE COMMUNICATION ET PRODUCTION",
+      "subtitle": "ÉVÉNEMENTIEL CORPORATE ET GRAND PUBLIC · MARKETING ALTERNATIF · ROADSHOW ET ACTIVATIONS",
+      "cta": "Découvrir l'Excellence"
+    }
+  },
+  "gallery": {
+    "page": {
+      "title": "NOTRE GALERIE",
+      "subtitle": "Découvrez notre portfolio d'œuvres créatives et nos réalisations récentes",
+      "sectionTitle": "EXPLOREZ NOS PROJETS",
+      "sectionSubtitle": "Filtrez par catégorie pour découvrir nos différentes réalisations"
+    },
+    "filters": {
+      "all": "Tous"
+    },
+    "modal": {
+      "category": "CATÉGORIE",
+      "client": "CLIENT",
+      "year": "ANNÉE",
+      "about": "À propos du projet",
+      "gallery": "GALERIE D'IMAGES"
+    },
+    "cta": "Voir tous les projets"
+  },
+  "subsidiaryHeader": {
+    "banner": {
+      "message": "Vous consultez le site {subsidiary}.",
+      "return": "Retourner à Genius AD District",
+      "dismiss": "Fermer la bannière"
     }
   },
     "homepage": {    "hero": {      "title": "GÉNIE CRÉATIF, IMPACT STRATÉGIQUE",      "subtitle": "Nous réinventons l'expérience de marque à travers une fusion unique de créativité audacieuse et d'intelligence stratégique",      "cta": "DÉCOUVRIR NOTRE UNIVERS"    },    "about": {      "title": "L'APPROCHE GENIUS",      "content": "Genius Ad District est un collectif créatif d'élite qui unifie quatre filiales spécialisées sous une vision commune : transformer radicalement la présence de votre marque à travers tous les points de contact avec votre audience. Notre méthodologie exclusive combine innovation visuelle, stratégie data-driven et exécution impeccable pour créer des expériences de marque qui captivent, convertissent et fidélisent."    },    "services": {      "title": "EXPERTISE INTÉGRÉE",      "subtitle": "Solutions holistiques pour marques ambitieuses dans un écosystème médiatique en constante évolution"    },    "subsidiaries": {      "title": "NOTRE ÉCOSYSTÈME CRÉATIF",      "subtitle": "Quatre pôles d'excellence spécialisés, une synergie parfaite pour des résultats exceptionnels"    },    "caseStudies": {      "title": "SUCCÈS TRANSFORMATIONNELS",      "subtitle": "Explorez comment notre approche distinctive redéfinit les standards et génère des résultats mesurables"    },    "testimonials": {      "title": "ILS NOUS FONT CONFIANCE",      "subtitle": "Découvrez l'impact concret de notre collaboration avec des marques visionnaires"    },    "cta": {      "title": "PRÊT À RÉINVENTER VOTRE MARQUE ?",      "subtitle": "Franchissez le pas vers une communication qui transcende les attentes et crée une connexion authentique avec votre audience",      "button": "INITIER VOTRE PROJET"    },    "expertises": {      "title": "DOMAINES D'EXCELLENCE",      "subtitle": "Notre maîtrise s'étend à tous les aspects de l'expérience de marque moderne",      "branding": {        "title": "BRANDING STRATÉGIQUE",        "description": "Création et évolution d'identités de marque distinctives qui résonnent profondément avec votre audience cible."      },      "digital": {        "title": "EXPÉRIENCE DIGITALE",        "description": "Conception d'écosystèmes digitaux immersifs qui génèrent engagement et conversion."      },      "events": {        "title": "ACTIVATION ÉVÉNEMENTIELLE",        "description": "Organisation d'expériences physiques mémorables qui renforcent la connexion émotionnelle avec votre marque."      },      "production": {        "title": "PRODUCTION PREMIUM",        "description": "Fabrication d'actifs visuels et matériels d'exception qui incarnent l'excellence de votre marque."      }    },    "technologies": {      "title": "INNOVATION TECHNOLOGIQUE",      "subtitle": "Notre R&D intègre les technologies les plus avancées pour propulser votre communication",      "ai": "Intelligence Artificielle Créative",      "ar": "Réalité Augmentée & Virtuelle",      "data": "Analyse Prédictive & Data Visualization",      "automation": "Marketing Automation & Personnalisation"    }

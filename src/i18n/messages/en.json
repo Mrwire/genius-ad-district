@@ -1,12 +1,28 @@
 {
   "common": {
     "languageName": "English",
-    "switchLanguage": "Switch to French",
+    "switchLanguage": "Switch language",
+    "languageSwitcher": {
+      "switchToEnglish": "Switch to English",
+      "switchToFrench": "Switch to French",
+      "short": {
+        "en": "EN",
+        "fr": "FR"
+      },
+      "languageNames": {
+        "en": "English",
+        "fr": "French"
+      },
+      "current": "Current language: {language}"
+    },
     "navigation": {
       "home": "Home",
       "about": "About",
       "caseStudies": "Case Studies",
       "subsidiaries": "Subsidiaries",
+      "services": "Services",
+      "projects": "Projects",
+      "gallery": "Gallery",
       "contact": "Contact"
     },
     "footer": {
@@ -32,6 +48,10 @@
       "cancel": "Cancel",
       "save": "Save"
     },
+    "accessibility": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
     "contact": {
       "title": "Contact",
       "form": {
@@ -41,6 +61,93 @@
         "subject": "Subject",
         "phone": "Phone"
       }
+    }
+  },
+  "navbar": {
+    "menu": {
+      "about": {
+        "label": "About",
+        "links": {
+          "history": "Our History",
+          "team": "Our Team",
+          "values": "Our Values",
+          "expertise": "Expertise"
+        }
+      },
+      "subsidiaries": {
+        "label": "Subsidiaries",
+        "links": {
+          "mps": "MPS",
+          "labrigad": "LABRIG'Ad",
+          "gamius": "Gamius",
+          "moujeleell": "Mouje & Leell"
+        }
+      },
+      "services": {
+        "label": "Services"
+      },
+      "projects": {
+        "label": "Projects"
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "company": {
+        "title": "Company"
+      },
+      "subsidiaries": {
+        "title": "Subsidiaries"
+      },
+      "legal": {
+        "title": "Legal",
+        "links": {
+          "legalNotice": "Legal Notice",
+          "privacy": "Privacy Policy",
+          "cookies": "Cookie Policy",
+          "terms": "Terms & Conditions"
+        }
+      }
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "bottom": {
+      "copyright": "© {year} Genius Ad District. All rights reserved."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "COMMUNICATION AND PRODUCTION AGENCY",
+      "subtitle": "CORPORATE & PUBLIC EVENTS · ALTERNATIVE MARKETING · ROADSHOWS & ACTIVATIONS",
+      "cta": "Discover Excellence"
+    }
+  },
+  "gallery": {
+    "page": {
+      "title": "OUR GALLERY",
+      "subtitle": "Explore our portfolio of creative works and recent achievements",
+      "sectionTitle": "EXPLORE OUR PROJECTS",
+      "sectionSubtitle": "Filter by category to discover our different achievements"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "modal": {
+      "category": "CATEGORY",
+      "client": "CLIENT",
+      "year": "YEAR",
+      "about": "About the project",
+      "gallery": "IMAGE GALLERY"
+    },
+    "cta": "View all projects"
+  },
+  "subsidiaryHeader": {
+    "banner": {
+      "message": "You are viewing the {subsidiary} website.",
+      "return": "Return to Genius AD District",
+      "dismiss": "Close banner"
     }
   },
   "homepage": {

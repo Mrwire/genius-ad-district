@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import { Typography } from '@/components/atoms/Typography';
 import { Button } from '@/components/ui/button';
-import { useLocale } from 'next-intl';
+import { Link } from '@/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 
 // Définition des projets de la galerie avec données de localisation
 const GALLERY_PROJECTS = [
@@ -78,23 +79,21 @@ interface LocaleText {
 // Props du composant de galerie
 interface EnhancedGalleryFixedProps {
   limit?: number;
-  title?: LocaleText;
-  subtitle?: LocaleText;
+  titleOverride?: string;
+  subtitleOverride?: string;
   className?: string;
   showFilters?: boolean;
 }
 
-const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({ 
-  limit = GALLERY_PROJECTS.length, 
-  title = { fr: 'NOS PROJETS', en: 'OUR PROJECTS' },
-  subtitle = { 
-    fr: 'Découvrez nos réalisations récentes et comment nous transformons les marques',
-    en: 'Discover our recent achievements and how we transform brands'
-  },
+const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
+  limit = GALLERY_PROJECTS.length,
+  titleOverride,
+  subtitleOverride,
   className = '',
   showFilters = false
 }) => {
   const locale = useLocale();
+  const tGallery = useTranslations('gallery');
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<typeof GALLERY_PROJECTS[0] | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
@@ -167,10 +166,10 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
           {/* Titre et sous-titre */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Typography variant="h2" className="mb-4">
-              {title[locale as keyof LocaleText]}
+              {titleOverride ?? tGallery('page.sectionTitle')}
             </Typography>
             <Typography variant="body" color="muted" className="md:text-lg max-w-2xl mx-auto">
-              {subtitle[locale as keyof LocaleText]}
+              {subtitleOverride ?? tGallery('page.sectionSubtitle')}
             </Typography>
           </div>
           
@@ -183,7 +182,7 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
                 }`}
                 onClick={() => setActiveCategory(null)}
               >
-                {locale === 'fr' ? 'Tous' : 'All'}
+                {tGallery('filters.all')}
               </button>
               
               {categories.map((category) => (
@@ -361,7 +360,7 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
                       <div className="flex flex-wrap gap-4 mb-8">
                         <div className="bg-white/10 rounded-lg p-3">
                           <Typography variant="body" color="muted" className="text-xs">
-                            {locale === 'fr' ? 'CATÉGORIE' : 'CATEGORY'}
+                            {tGallery('modal.category')}
                           </Typography>
                           <Typography variant="body" className="font-medium">
                             {selectedProject.category[locale as keyof LocaleText]}
@@ -370,7 +369,7 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
                         
                         <div className="bg-white/10 rounded-lg p-3">
                           <Typography variant="body" color="muted" className="text-xs">
-                            {locale === 'fr' ? 'CLIENT' : 'CLIENT'}
+                            {tGallery('modal.client')}
                           </Typography>
                           <Typography variant="body" className="font-medium">
                             {selectedProject.client}
@@ -379,7 +378,7 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
                         
                         <div className="bg-white/10 rounded-lg p-3">
                           <Typography variant="body" color="muted" className="text-xs">
-                            {locale === 'fr' ? 'ANNÉE' : 'YEAR'}
+                            {tGallery('modal.year')}
                           </Typography>
                           <Typography variant="body" className="font-medium">
                             {selectedProject.year}
@@ -388,7 +387,7 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
                       </div>
                       
                       <Typography variant="h6" className="mb-4">
-                        {locale === 'fr' ? 'À propos du projet' : 'About the project'}
+                        {tGallery('modal.about')}
                       </Typography>
                       
                       <Typography variant="body" color="muted" className="mb-8">
@@ -398,7 +397,7 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
                       {/* Miniatures */}
                       <div className="space-y-4">
                         <Typography variant="body" color="muted" className="text-sm">
-                          {locale === 'fr' ? 'GALERIE D\'IMAGES' : 'IMAGE GALLERY'}
+                          {tGallery('modal.gallery')}
                         </Typography>
                         
                         <div className="grid grid-cols-4 gap-3">
@@ -459,15 +458,15 @@ const EnhancedGalleryFixed: React.FC<EnhancedGalleryFixedProps> = ({
           {/* Bouton pour voir plus de projets */}
           {limit < GALLERY_PROJECTS.length && (
             <div className="mt-16 text-center">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
                 className="border-white/20 hover:bg-white/10"
                 asChild
               >
-                <a href="/gallery">
-                  {locale === 'fr' ? 'Voir tous les projets' : 'View all projects'}
-                </a>
+                <Link href="/gallery">
+                  {tGallery('cta')}
+                </Link>
               </Button>
             </div>
           )}
