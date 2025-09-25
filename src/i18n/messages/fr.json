@@ -1,12 +1,28 @@
 {
   "common": {
     "languageName": "Français",
-    "switchLanguage": "Passer à l'anglais",
+    "switchLanguage": "Changer de langue",
+    "languageSwitcher": {
+      "switchToEnglish": "Passer en anglais",
+      "switchToFrench": "Passer en français",
+      "short": {
+        "en": "EN",
+        "fr": "FR"
+      },
+      "languageNames": {
+        "en": "Anglais",
+        "fr": "Français"
+      },
+      "current": "Langue actuelle : {language}"
+    },
     "navigation": {
       "home": "Accueil",
       "about": "À propos",
       "caseStudies": "Études de cas",
       "subsidiaries": "Filiales",
+      "services": "Services",
+      "projects": "Projets",
+      "gallery": "Galerie",
       "contact": "Contact"
     },
     "footer": {
@@ -32,6 +48,10 @@
       "cancel": "Annuler",
       "save": "Enregistrer"
     },
+    "accessibility": {
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu"
+    },
     "contact": {
       "title": "Contact",
       "form": {
@@ -41,6 +61,93 @@
         "subject": "Sujet",
         "phone": "Téléphone"
       }
+    }
+  },
+  "navbar": {
+    "menu": {
+      "about": {
+        "label": "À propos",
+        "links": {
+          "history": "Notre histoire",
+          "team": "Notre équipe",
+          "values": "Nos valeurs",
+          "expertise": "Expertises"
+        }
+      },
+      "subsidiaries": {
+        "label": "Filiales",
+        "links": {
+          "mps": "MPS",
+          "labrigad": "LABRIG'Ad",
+          "gamius": "Gamius",
+          "moujeleell": "Mouje & Leell"
+        }
+      },
+      "services": {
+        "label": "Services"
+      },
+      "projects": {
+        "label": "Projets"
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "company": {
+        "title": "Entreprise"
+      },
+      "subsidiaries": {
+        "title": "Filiales"
+      },
+      "legal": {
+        "title": "Légal",
+        "links": {
+          "legalNotice": "Mentions légales",
+          "privacy": "Politique de confidentialité",
+          "cookies": "Politique de cookies",
+          "terms": "Conditions générales"
+        }
+      }
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "bottom": {
+      "copyright": "© {year} Genius Ad District. Tous droits réservés."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "AGENCE DE COMMUNICATION ET PRODUCTION",
+      "subtitle": "ÉVÉNEMENTIEL CORPORATE ET GRAND PUBLIC · MARKETING ALTERNATIF · ROADSHOW ET ACTIVATIONS",
+      "cta": "Découvrir l'Excellence"
+    }
+  },
+  "gallery": {
+    "page": {
+      "title": "NOTRE GALERIE",
+      "subtitle": "Découvrez notre portfolio d'œuvres créatives et nos réalisations récentes",
+      "sectionTitle": "EXPLOREZ NOS PROJETS",
+      "sectionSubtitle": "Filtrez par catégorie pour découvrir nos différentes réalisations"
+    },
+    "filters": {
+      "all": "Tous"
+    },
+    "modal": {
+      "category": "CATÉGORIE",
+      "client": "CLIENT",
+      "year": "ANNÉE",
+      "about": "À propos du projet",
+      "gallery": "GALERIE D'IMAGES"
+    },
+    "cta": "Voir tous les projets"
+  },
+  "subsidiaryHeader": {
+    "banner": {
+      "message": "Vous consultez le site {subsidiary}.",
+      "return": "Retourner à Genius AD District",
+      "dismiss": "Fermer la bannière"
     }
   },
     "homepage": {    "hero": {      "title": "GÉNIE CRÉATIF, IMPACT STRATÉGIQUE",      "subtitle": "Nous réinventons l'expérience de marque à travers une fusion unique de créativité audacieuse et d'intelligence stratégique",      "cta": "DÉCOUVRIR NOTRE UNIVERS"    },    "about": {      "title": "L'APPROCHE GENIUS",      "content": "Genius Ad District est un collectif créatif d'élite qui unifie quatre filiales spécialisées sous une vision commune : transformer radicalement la présence de votre marque à travers tous les points de contact avec votre audience. Notre méthodologie exclusive combine innovation visuelle, stratégie data-driven et exécution impeccable pour créer des expériences de marque qui captivent, convertissent et fidélisent."    },    "services": {      "title": "EXPERTISE INTÉGRÉE",      "subtitle": "Solutions holistiques pour marques ambitieuses dans un écosystème médiatique en constante évolution"    },    "subsidiaries": {      "title": "NOTRE ÉCOSYSTÈME CRÉATIF",      "subtitle": "Quatre pôles d'excellence spécialisés, une synergie parfaite pour des résultats exceptionnels"    },    "caseStudies": {      "title": "SUCCÈS TRANSFORMATIONNELS",      "subtitle": "Explorez comment notre approche distinctive redéfinit les standards et génère des résultats mesurables"    },    "testimonials": {      "title": "ILS NOUS FONT CONFIANCE",      "subtitle": "Découvrez l'impact concret de notre collaboration avec des marques visionnaires"    },    "cta": {      "title": "PRÊT À RÉINVENTER VOTRE MARQUE ?",      "subtitle": "Franchissez le pas vers une communication qui transcende les attentes et crée une connexion authentique avec votre audience",      "button": "INITIER VOTRE PROJET"    },    "expertises": {      "title": "DOMAINES D'EXCELLENCE",      "subtitle": "Notre maîtrise s'étend à tous les aspects de l'expérience de marque moderne",      "branding": {        "title": "BRANDING STRATÉGIQUE",        "description": "Création et évolution d'identités de marque distinctives qui résonnent profondément avec votre audience cible."      },      "digital": {        "title": "EXPÉRIENCE DIGITALE",        "description": "Conception d'écosystèmes digitaux immersifs qui génèrent engagement et conversion."      },      "events": {        "title": "ACTIVATION ÉVÉNEMENTIELLE",        "description": "Organisation d'expériences physiques mémorables qui renforcent la connexion émotionnelle avec votre marque."      },      "production": {        "title": "PRODUCTION PREMIUM",        "description": "Fabrication d'actifs visuels et matériels d'exception qui incarnent l'excellence de votre marque."      }    },    "technologies": {      "title": "INNOVATION TECHNOLOGIQUE",      "subtitle": "Notre R&D intègre les technologies les plus avancées pour propulser votre communication",      "ai": "Intelligence Artificielle Créative",      "ar": "Réalité Augmentée & Virtuelle",      "data": "Analyse Prédictive & Data Visualization",      "automation": "Marketing Automation & Personnalisation"    }
@@ -2214,4 +2321,568 @@
       }
     }
   },
-    "CulturalAdaptation": {    "guidelines": {      "title": "Directives d'Adaptation Transculturelle",      "description": "Principes pour adapter le contenu entre les marchés francophones et anglophones tout en maintenant la cohérence de la marque et la pertinence culturelle."    },    "principles": {      "toneOfVoice": {        "english": {          "title": "Ton de Communication en Anglais",          "description": "Pour le contenu anglais, adoptez un ton direct, confiant et pragmatique mettant l'accent sur l'efficacité, l'innovation et les résultats mesurables. Utilisez davantage de verbes d'action et des structures de phrases concises.",          "examples": [            "Transforming vision into strategy into results",            "Delivering measurable impact for forward-thinking brands",            "Elevate your brand with data-driven creative solutions"          ]        },        "french": {          "title": "Ton de Communication en Français",          "description": "Pour le contenu français, adoptez un ton plus poétique et philosophique mettant l'accent sur la vision créative, la signification culturelle et la connexion émotionnelle. Utilisez des descriptions plus riches et un langage évocateur.",          "examples": [            "Orchestrer une symphonie créative pour votre marque",            "Sculpter l'identité visuelle qui exprime l'âme de votre entreprise",            "Éveiller les émotions à travers l'excellence créative"          ]        }      },      "imageContext": {        "title": "Adaptation du Contexte Visuel",        "description": "Ajuster l'imagerie de support pour refléter les différences culturelles en matière de préférences esthétiques, de contextes sociaux et de métaphores visuelles",        "morocco": "Pour le public marocain, mettez l'accent sur les références culturelles locales, les motifs traditionnels avec des touches modernes et les images reflétant le paysage urbain marocain.",        "international": "Pour le public international, utilisez un langage visuel plus universellement reconnu tout en maintenant l'unicité créative nord-africaine comme élément distinctif."      },      "valueEmphasis": {        "title": "Adaptation des Priorités de Valeurs",        "description": "Adapter l'emphase du contenu en fonction des priorités de valeurs culturelles",        "french": {          "title": "Priorités de Valeurs Françaises/Marocaines",          "description": "Plus grande emphase sur la vision artistique, l'excellence créative, l'héritage culturel et la narration émotionnelle.",          "primaryValues": ["Créativité", "Excellence", "Innovation", "Héritage"]        },        "english": {          "title": "Priorités de Valeurs Anglaises/Internationales",          "description": "Plus grande emphase sur l'efficacité, le ROI, la pensée stratégique et les résultats mesurables.",          "primaryValues": ["Résultats", "Stratégie", "Innovation", "Excellence"]        }      },      "marketReferences": {        "title": "Références Spécifiques au Marché",        "description": "Adapter les exemples, études de cas et références sectorielles en fonction de la pertinence du marché cible.",        "morocco": "Pour le public marocain, mettez l'accent sur les success stories locales et le leadership sectoriel régional.",        "international": "Pour le public international, soulignez les capacités interculturelles et l'expérience internationale de la marque."      },      "communicationStyle": {        "title": "Adaptation du Style de Communication",        "description": "Adapter le style de communication pour répondre aux attentes culturelles",        "french": {          "title": "Style de Communication Français",          "description": "Communication plus riche en contexte, centrée sur la relation, avec une élégante formalité et une expression artistique.",          "examples": [            "Nous vous invitons à découvrir notre vision créative...",            "C'est avec passion que nous transformons votre marque..."          ]        },        "english": {          "title": "Style de Communication Anglais",          "description": "Communication plus directe, axée sur l'action, avec des propositions de valeur claires et des avantages tangibles.",          "examples": [            "Discover how we can transform your brand...",            "Our approach delivers measurable results through..."          ]        }      }    },    "contentTypes": {      "title": "Directives d'Adaptation par Type de Contenu",      "homepage": "La page d'accueil doit équilibrer l'excellence créative universelle avec des signaux de crédibilité spécifiques au marché.",      "services": "Les descriptions de services doivent mettre l'accent sur la valeur artistique en français et sur les avantages orientés résultats en anglais.",      "caseStudies": "Les études de cas doivent mettre l'accent sur le parcours créatif en français et sur les résultats mesurables en anglais.",      "about": "Le récit de l'entreprise doit mettre l'accent sur l'héritage culturel en français et sur l'expertise mondiale en anglais."    }  }} 
+    "CulturalAdaptation": {    "guidelines": {      "title": "Directives d'Adaptation Transculturelle",      "description": "Principes pour adapter le contenu entre les marchés francophones et anglophones tout en maintenant la cohérence de la marque et la pertinence culturelle."    },    "principles": {      "toneOfVoice": {        "english": {          "title": "Ton de Communication en Anglais",          "description": "Pour le contenu anglais, adoptez un ton direct, confiant et pragmatique mettant l'accent sur l'efficacité, l'innovation et les résultats mesurables. Utilisez davantage de verbes d'action et des structures de phrases concises.",          "examples": [            "Transforming vision into strategy into results",            "Delivering measurable impact for forward-thinking brands",            "Elevate your brand with data-driven creative solutions"          ]        },        "french": {          "title": "Ton de Communication en Français",          "description": "Pour le contenu français, adoptez un ton plus poétique et philosophique mettant l'accent sur la vision créative, la signification culturelle et la connexion émotionnelle. Utilisez des descriptions plus riches et un langage évocateur.",          "examples": [            "Orchestrer une symphonie créative pour votre marque",            "Sculpter l'identité visuelle qui exprime l'âme de votre entreprise",            "Éveiller les émotions à travers l'excellence créative"          ]        }      },      "imageContext": {        "title": "Adaptation du Contexte Visuel",        "description": "Ajuster l'imagerie de support pour refléter les différences culturelles en matière de préférences esthétiques, de contextes sociaux et de métaphores visuelles",        "morocco": "Pour le public marocain, mettez l'accent sur les références culturelles locales, les motifs traditionnels avec des touches modernes et les images reflétant le paysage urbain marocain.",        "international": "Pour le public international, utilisez un langage visuel plus universellement reconnu tout en maintenant l'unicité créative nord-africaine comme élément distinctif."      },      "valueEmphasis": {        "title": "Adaptation des Priorités de Valeurs",        "description": "Adapter l'emphase du contenu en fonction des priorités de valeurs culturelles",        "french": {          "title": "Priorités de Valeurs Françaises/Marocaines",          "description": "Plus grande emphase sur la vision artistique, l'excellence créative, l'héritage culturel et la narration émotionnelle.",          "primaryValues": ["Créativité", "Excellence", "Innovation", "Héritage"]        },        "english": {          "title": "Priorités de Valeurs Anglaises/Internationales",          "description": "Plus grande emphase sur l'efficacité, le ROI, la pensée stratégique et les résultats mesurables.",          "primaryValues": ["Résultats", "Stratégie", "Innovation", "Excellence"]        }      },      "marketReferences": {        "title": "Références Spécifiques au Marché",        "description": "Adapter les exemples, études de cas et références sectorielles en fonction de la pertinence du marché cible.",        "morocco": "Pour le public marocain, mettez l'accent sur les success stories locales et le leadership sectoriel régional.",        "international": "Pour le public international, soulignez les capacités interculturelles et l'expérience internationale de la marque."      },      "communicationStyle": {        "title": "Adaptation du Style de Communication",        "description": "Adapter le style de communication pour répondre aux attentes culturelles",        "french": {          "title": "Style de Communication Français",          "description": "Communication plus riche en contexte, centrée sur la relation, avec une élégante formalité et une expression artistique.",          "examples": [            "Nous vous invitons à découvrir notre vision créative...",            "C'est avec passion que nous transformons votre marque..."          ]        },        "english": {          "title": "Style de Communication Anglais",          "description": "Communication plus directe, axée sur l'action, avec des propositions de valeur claires et des avantages tangibles.",          "examples": [            "Discover how we can transform your brand...",            "Our approach delivers measurable results through..."          ]        }      }    },    "contentTypes": {      "title": "Directives d'Adaptation par Type de Contenu",      "homepage": "La page d'accueil doit équilibrer l'excellence créative universelle avec des signaux de crédibilité spécifiques au marché.",      "services": "Les descriptions de services doivent mettre l'accent sur la valeur artistique en français et sur les avantages orientés résultats en anglais.",      "caseStudies": "Les études de cas doivent mettre l'accent sur le parcours créatif en français et sur les résultats mesurables en anglais.",      "about": "Le récit de l'entreprise doit mettre l'accent sur l'héritage culturel en français et sur l'expertise mondiale en anglais."    }
+  },
+  "header": {
+    "contact": "Nous contacter",
+    "badges": {
+      "new": "Nouveau"
+    },
+    "language": {
+      "short": {
+        "fr": "FR",
+        "en": "EN"
+      }
+    },
+    "navigation": {
+      "about": {
+        "label": "À propos",
+        "children": {
+          "history": {
+            "title": "Notre histoire & nos valeurs",
+            "description": "Découvrez notre parcours, notre vision et les valeurs qui nous animent."
+          },
+          "team": {
+            "title": "Notre équipe",
+            "description": "Rencontrez les talents qui font la différence pour nos clients."
+          },
+          "careers": {
+            "title": "Nous rejoindre",
+            "description": "Explorez nos opportunités de carrière et rejoignez notre collectif."
+          }
+        }
+      },
+      "expertises": {
+        "label": "Expertises",
+        "children": {
+          "branding": {
+            "title": "Branding",
+            "description": "Stratégies de marque et identités visuelles distinctives."
+          },
+          "digital": {
+            "title": "Digital & Web",
+            "description": "Solutions digitales et développement web générateurs d'engagement."
+          },
+          "events": {
+            "title": "Événementiel",
+            "description": "Conception et production d'événements mémorables."
+          },
+          "production": {
+            "title": "Production & Print",
+            "description": "Production premium et impression pour tous vos points de contact."
+          },
+          "marketing": {
+            "title": "Marketing & Stratégie",
+            "description": "Plans de communication et stratégies marketing à impact mesurable."
+          }
+        }
+      },
+      "solutions": {
+        "label": "Solutions",
+        "children": {
+          "brandActivation": {
+            "title": "Activation de marque",
+            "description": "Dispositifs terrain qui renforcent votre présence et votre proximité."
+          },
+          "roadshow": {
+            "title": "Roadshow",
+            "description": "Tournées promotionnelles et événements itinérants sur vos marchés."
+          },
+          "standDesign": {
+            "title": "Stand & design d'espace",
+            "description": "Conception sur mesure de stands et scénographies immersives."
+          },
+          "esport": {
+            "title": "E-sport & Gaming",
+            "description": "Expériences créatives dédiées aux communautés gaming et esports."
+          },
+          "advertising": {
+            "title": "Publicité & média",
+            "description": "Plans médias et campagnes publicitaires à 360°."
+          }
+        }
+      },
+      "subsidiaries": {
+        "label": "Filiales",
+        "children": {
+          "mps": {
+            "title": "MPS",
+            "description": "Production & fabrication — matérialisation de vos idées ambitieuses."
+          },
+          "labrigad": {
+            "title": "LABRIG'Ad",
+            "description": "Activation & événementiel — déploiement terrain irréprochable."
+          },
+          "gamius": {
+            "title": "Gamius",
+            "description": "E-sport & gaming — expériences pour les nouvelles audiences."
+          },
+          "moujeleell": {
+            "title": "Mouje & Leell",
+            "description": "Design & mobilier — créations sur mesure et scénographies."
+          }
+        }
+      },
+      "caseStudies": {
+        "label": "Réalisations",
+        "children": {
+          "portfolio": {
+            "title": "Portfolio",
+            "description": "Découvrez nos projets récents et nos productions emblématiques."
+          },
+          "clientCases": {
+            "title": "Études de cas",
+            "description": "Analyses détaillées de nos collaborations phares."
+          }
+        }
+      },
+      "contact": {
+        "label": "Contact"
+      }
+    }
+  },
+  "legal": {
+    "cgv": {
+      "metadata": {
+        "title": "Conditions Générales de Vente - Genius Ad District",
+        "description": "Conditions de vente encadrant les prestations proposées par Genius Ad District."
+      },
+      "title": "Conditions Générales de Vente",
+      "effectiveDate": "En vigueur au 1er octobre 2023",
+      "intro": [
+        {
+          "type": "paragraph",
+          "text": "Les présentes conditions générales de vente (les \"CGV\") s'appliquent sans restriction ni réserve à l'ensemble des prestations fournies par Genius Ad District (le \"Vendeur\") à ses clients (l'\"Acheteur\") via le site internet genius-ad-district.com."
+        },
+        {
+          "type": "paragraph",
+          "text": "Toute commande implique l'acceptation pleine et entière des présentes CGV par l'Acheteur."
+        }
+      ],
+      "sections": [
+        {
+          "title": "1. Objet",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Les présentes CGV définissent les conditions de vente des prestations proposées par Genius Ad District à ses clients."
+            }
+          ]
+        },
+        {
+          "title": "2. Prix",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Les prix de nos prestations sont indiqués en euros toutes taxes comprises (TVA et autres taxes applicables)."
+            },
+            {
+              "type": "paragraph",
+              "text": "Genius Ad District se réserve le droit de modifier ses tarifs à tout moment ; les prestations sont facturées sur la base des prix en vigueur au moment de l'enregistrement de la commande."
+            }
+          ]
+        },
+        {
+          "title": "3. Commande",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Pour passer commande, le Client doit remplir le bon de commande en ligne. La validation de la commande vaut acceptation des présentes CGV."
+            },
+            {
+              "type": "paragraph",
+              "text": "Le Vendeur se réserve le droit d'annuler ou de refuser toute commande d'un client avec lequel existerait un litige relatif au paiement d'une commande antérieure."
+            }
+          ]
+        },
+        {
+          "title": "4. Modalités de paiement",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Le règlement des prestations est exigible immédiatement à la commande."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Par carte bancaire via notre plateforme de paiement sécurisée",
+                "Par virement bancaire",
+                "Par tout autre moyen de paiement proposé lors de la commande"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5. Délais d'exécution",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Les délais d'exécution sont indiqués lors de la commande. Ils sont donnés à titre indicatif et peuvent varier en fonction de la charge de travail du Vendeur."
+            },
+            {
+              "type": "paragraph",
+              "text": "En cas de retard supérieur à 30 jours par rapport à la date de livraison prévue, et après mise en demeure restée sans effet, l'Acheteur pourra résoudre le contrat et obtenir le remboursement de sa commande sans pouvoir prétendre à des dommages et intérêts."
+            }
+          ]
+        },
+        {
+          "title": "6. Droit de rétractation",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Conformément à l'article L.221-18 du Code de la consommation, l'Acheteur dispose d'un délai de 14 jours à compter de la conclusion du contrat pour exercer son droit de rétractation sans avoir à justifier de motifs ni à payer de pénalités."
+            }
+          ]
+        },
+        {
+          "title": "7. Propriété intellectuelle",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "L'ensemble des éléments du site genius-ad-district.com et des prestations fournies reste la propriété intellectuelle exclusive de Genius Ad District ou de ses partenaires. Aucune cession de droits n'est réalisée au titre des présentes CGV."
+            }
+          ]
+        },
+        {
+          "title": "8. Données personnelles",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Les données personnelles recueillies lors de la commande sont nécessaires à son traitement. Elles sont utilisées par Genius Ad District et peuvent être partagées avec les prestataires strictement impliqués dans l'exécution de la commande."
+            }
+          ]
+        },
+        {
+          "title": "9. Droit applicable et litiges",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Les présentes CGV sont soumises au droit français."
+            },
+            {
+              "type": "paragraph",
+              "text": "En cas de litige, les tribunaux français seront seuls compétents."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "title": "10. Contact",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Pour toute question ou réclamation, vous pouvez nous contacter :"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Email : contact@genius-ad-district.com",
+              "Téléphone : +212 (0)5 22 00 00 00",
+              "Adresse postale : Genius Ad District, Casablanca, Maroc"
+            ]
+          }
+        ]
+      }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "Politique de confidentialité - Genius Ad District",
+        "description": "Politique de confidentialité expliquant la collecte et la protection des données personnelles par Genius Ad District."
+      },
+      "title": "Politique de confidentialité",
+      "lastUpdated": "Dernière mise à jour : 1er octobre 2023",
+      "intro": [
+        {
+          "type": "paragraph",
+          "text": "Genius Ad District (\"nous\", \"notre\" ou \"nos\") s'engage à protéger votre vie privée. La présente politique détaille la manière dont nous collectons, utilisons et protégeons vos données personnelles."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nous vous invitons à la lire attentivement pour comprendre nos pratiques."
+        }
+      ],
+      "sections": [
+        {
+          "title": "1. Données que nous collectons",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Nous pouvons collecter et traiter les données suivantes :"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Informations que vous nous transmettez via les formulaires du site",
+                "Détails relatifs à vos visites et aux ressources consultées",
+                "Informations fournies lorsque vous nous contactez",
+                "Données de localisation et statistiques d'usage"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "2. Utilisation des données",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Les informations collectées nous permettent notamment de :"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Fournir et améliorer nos prestations",
+                "Vous contacter au sujet de nos services",
+                "Personnaliser votre expérience sur notre site",
+                "Répondre à vos demandes et questions",
+                "Vous adresser des communications marketing lorsque vous y avez consenti"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "3. Partage des données",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Nous ne vendons ni ne louons vos données à des tiers. Elles peuvent toutefois être partagées avec :"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Nos prestataires participant à l'exécution de nos services",
+                "Les autorités compétentes lorsque la loi l'exige",
+                "Les sociétés impliquées dans une opération de fusion ou d'acquisition de Genius Ad District"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "4. Vos droits",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Vous disposez notamment des droits suivants :"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Accéder à vos données personnelles",
+                "Demander la rectification ou l'effacement de vos données",
+                "Vous opposer au traitement de vos données",
+                "Demander la limitation du traitement",
+                "Demander la portabilité de vos données",
+                "Retirer votre consentement à tout moment"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Pour exercer ces droits, contactez-nous à l'adresse contact@genius-ad-district.com."
+            }
+          ]
+        },
+        {
+          "title": "5. Cookies",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Notre site utilise des cookies afin d'améliorer votre expérience. Vous pouvez configurer votre navigateur pour refuser tous les cookies ou être averti lorsqu'un cookie est déposé."
+            }
+          ]
+        },
+        {
+          "title": "6. Modifications de la politique",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Cette politique de confidentialité peut être amenée à évoluer. Nous vous invitons à la consulter régulièrement pour rester informés."
+            }
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "metadata": {
+        "title": "Politique de cookies - Genius Ad District",
+        "description": "Informations sur l'utilisation des cookies sur le site Genius Ad District."
+      },
+      "title": "Politique de cookies",
+      "lastUpdated": "Dernière mise à jour : 1er octobre 2023",
+      "intro": [
+        {
+          "type": "paragraph",
+          "text": "La présente politique explique ce que sont les cookies, comment nous les utilisons et comment vous pouvez les gérer lors de vos visites sur genius-ad-district.com."
+        }
+      ],
+      "sections": [
+        {
+          "title": "1. Qu'est-ce qu'un cookie ?",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Un cookie est un fichier texte déposé sur votre terminal (ordinateur, tablette ou mobile) lors de la consultation d'un site internet. Il permet de faciliter votre navigation et de fournir des informations au propriétaire du site."
+            }
+          ]
+        },
+        {
+          "title": "2. Les cookies que nous utilisons",
+          "subsections": [
+            {
+              "title": "Cookies essentiels",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Indispensables au fonctionnement du site, ils permettent notamment de naviguer entre les pages et d'accéder aux zones sécurisées."
+                }
+              ]
+            },
+            {
+              "title": "Cookies de performance",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Ils collectent des informations sur la manière dont les visiteurs utilisent notre site (pages consultées, erreurs éventuelles) afin d'améliorer ses performances."
+                }
+              ]
+            },
+            {
+              "title": "Cookies de fonctionnalité",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Ils mémorisent vos préférences (langue, région) et offrent des fonctionnalités personnalisées."
+                }
+              ]
+            },
+            {
+              "title": "Cookies de ciblage",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Ils enregistrent votre visite, les pages consultées et les liens suivis afin de vous proposer des publicités adaptées."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "3. Gestion des cookies",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Vous pouvez paramétrer votre navigateur pour gérer vos préférences. Ressources utiles :"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Google Chrome : https://support.google.com/chrome/answer/95647",
+                "Mozilla Firefox : https://support.mozilla.org/fr/kb/protection-renforcee-contre-pistage-firefox-ordinateur",
+                "Safari : https://support.apple.com/fr-fr/guide/safari/sfri11471/mac",
+                "Microsoft Edge : https://support.microsoft.com/fr-fr/topic/supprimer-les-cookies-dans-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "La désactivation de certains cookies peut cependant dégrader votre expérience de navigation."
+            }
+          ]
+        },
+        {
+          "title": "4. Consentement",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "En poursuivant votre navigation, vous acceptez l'utilisation de cookies conformément à la présente politique. Si vous refusez, configurez votre navigateur ou cessez d'utiliser le site."
+            }
+          ]
+        },
+        {
+          "title": "5. Contact",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Pour toute question concernant notre politique de cookies, écrivez-nous à contact@genius-ad-district.com."
+            }
+          ]
+        }
+      ]
+    },
+    "legalNotice": {
+      "metadata": {
+        "title": "Mentions légales - Genius Ad District",
+        "description": "Mentions légales et informations sur la société Genius Ad District."
+      },
+      "title": "Mentions légales",
+      "sections": [
+        {
+          "title": "1. Éditeur du site",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Le site genius-ad-district.com est édité par Genius Ad District, société dont le siège est situé à Casablanca, Maroc."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Siège social : Casablanca, Maroc",
+                "Téléphone : +212 (0)5 22 00 00 00",
+                "Email : contact@genius-ad-district.com",
+                "Capital social : 1 000 000 MAD",
+                "RCS : RC Casablanca 123456",
+                "N° TVA intracommunautaire : MA1234567890"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "2. Directeur de la publication",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Directeur de la publication : Direction Générale de Genius Ad District."
+            }
+          ]
+        },
+        {
+          "title": "3. Hébergement",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Le site est hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis."
+            },
+            {
+              "type": "paragraph",
+              "text": "Téléphone : +1 (559) 432-5700"
+            }
+          ]
+        },
+        {
+          "title": "4. Propriété intellectuelle",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "L'ensemble des éléments du site (textes, images, logos, etc.) est la propriété exclusive de Genius Ad District ou de ses partenaires. Toute reproduction ou diffusion, totale ou partielle, sans autorisation écrite préalable est strictement interdite."
+            }
+          ]
+        },
+        {
+          "title": "5. Données personnelles",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Conformément à la loi Informatique et Libertés et au RGPD, vous disposez d'un droit d'accès, de rectification, d'opposition et de suppression de vos données en écrivant à contact@genius-ad-district.com."
+            }
+          ]
+        },
+        {
+          "title": "6. Droit applicable",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

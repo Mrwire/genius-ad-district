@@ -1,13 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useParams, usePathname } from 'next/navigation';
-import { useTheme } from '@/components/theme';
-import { Menu, X, ChevronDown, Globe } from 'lucide-react';
-
-// Shadcn UI Components
+import { Menu, Globe } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/navigation';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,31 +13,99 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+} from '@/components/ui/navigation-menu';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
-// Types
-type MainNavItem = {
+type NavChild = {
+  id: string;
+  path: string;
+  isNew?: boolean;
+};
+
+type NavItemConfig = {
+  id: string;
+  path: string;
+  children?: NavChild[];
+};
+
+const NAV_ITEMS: NavItemConfig[] = [
+  {
+    id: 'about',
+    path: 'about',
+    children: [
+      { id: 'history', path: 'about/history', isNew: true },
+      { id: 'team', path: 'about/team', isNew: true },
+      { id: 'careers', path: 'about/careers' }
+    ]
+  },
+  {
+    id: 'expertises',
+    path: 'expertises',
+    children: [
+      { id: 'branding', path: 'expertises/branding', isNew: true },
+      { id: 'digital', path: 'expertises/digital', isNew: true },
+      { id: 'events', path: 'expertises/events', isNew: true },
+      { id: 'production', path: 'expertises/production', isNew: true },
+      { id: 'marketing', path: 'expertises/marketing', isNew: true }
+    ]
+  },
+  {
+    id: 'solutions',
+    path: 'solutions',
+    children: [
+      { id: 'brandActivation', path: 'solutions/brand-activation', isNew: true },
+      { id: 'roadshow', path: 'solutions/roadshow', isNew: true },
+      { id: 'standDesign', path: 'solutions/stand-design', isNew: true },
+      { id: 'esport', path: 'solutions/esport', isNew: true },
+      { id: 'advertising', path: 'solutions/advertising', isNew: true }
+    ]
+  },
+  {
+    id: 'subsidiaries',
+    path: 'subsidiaries',
+    children: [
+      { id: 'mps', path: 'subsidiaries/mps' },
+      { id: 'labrigad', path: 'subsidiaries/labrigad' },
+      { id: 'gamius', path: 'subsidiaries/gamius' },
+      { id: 'moujeleell', path: 'subsidiaries/moujeleell' }
+    ]
+  },
+  {
+    id: 'caseStudies',
+    path: 'case-studies',
+    children: [
+      { id: 'portfolio', path: 'case-studies', isNew: true },
+      { id: 'clientCases', path: 'case-studies/client-cases', isNew: true }
+    ]
+  },
+  {
+    id: 'contact',
+    path: 'contact'
+  }
+];
+
+interface MainNavItem {
   title: string;
   path: string;
-  children?: {
+  children?: Array<{
     title: string;
     description?: string;
     path: string;
     isNew?: boolean;
-  }[];
-};
+  }>;
+}
 
 export default function ModernHeader() {
-  const { locale } = useParams();
+  const locale = useLocale();
   const pathname = usePathname();
-  const { theme } = useTheme();
-  
+  const tNavigation = useTranslations('header.navigation');
+  const tHeader = useTranslations('header');
+  const tLanguageNames = useTranslations('common.languageSwitcher.languageNames');
+
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -50,161 +115,37 @@ export default function ModernHeader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Main navigation items
-  const mainNav: MainNavItem[] = [
-    {
-      title: "À Propos",
-      path: `/${locale}/about`,
-      children: [
-        {
-          title: "Notre Histoire & Valeurs",
-          description: "Découvrez notre parcours, nos valeurs et notre vision.",
-          path: `/${locale}/about/history`,
-          isNew: true
-        },
-        {
-          title: "Notre Équipe",
-          description: "Rencontrez nos talents qui font la différence.",
-          path: `/${locale}/about/team`,
-          isNew: true
-        },
-        {
-          title: "Nous Rejoindre",
-          description: "Explorez nos opportunités de carrière.",
-          path: `/${locale}/about/careers`
-        }
-      ]
-    },
-    {
-      title: "Expertises",
-      path: `/${locale}/expertises`,
-      children: [
-        {
-          title: "Branding",
-          description: "Stratégies de marque et identités visuelles.",
-          path: `/${locale}/expertises/branding`,
-          isNew: true
-        },
-        {
-          title: "Digital & Web",
-          description: "Solutions digitales et développement web.",
-          path: `/${locale}/expertises/digital`,
-          isNew: true
-        },
-        {
-          title: "Événementiel",
-          description: "Organisation et production d'événements.",
-          path: `/${locale}/expertises/events`,
-          isNew: true
-        },
-        {
-          title: "Production & Impression",
-          description: "Services de production et d'impression de qualité.",
-          path: `/${locale}/expertises/production`,
-          isNew: true
-        },
-        {
-          title: "Marketing & Stratégie",
-          description: "Stratégies marketing et plans de communication.",
-          path: `/${locale}/expertises/marketing`,
-          isNew: true
-        }
-      ]
-    },
-    {
-      title: "Solutions",
-      path: `/${locale}/solutions`,
-      children: [
-        {
-          title: "Activation de marque",
-          description: "Stratégies d'activation pour renforcer votre marque.",
-          path: `/${locale}/solutions/brand-activation`,
-          isNew: true
-        },
-        {
-          title: "Roadshow",
-          description: "Événements itinérants et tournées promotionnelles.",
-          path: `/${locale}/solutions/roadshow`,
-          isNew: true
-        },
-        {
-          title: "Stand & Design d'espace",
-          description: "Conception et réalisation de stands sur mesure.",
-          path: `/${locale}/solutions/stand-design`,
-          isNew: true
-        },
-        {
-          title: "E-Sport & Gaming",
-          description: "Solutions pour l'univers du gaming et de l'e-sport.",
-          path: `/${locale}/solutions/esport`,
-          isNew: true
-        },
-        {
-          title: "Publicité & Média",
-          description: "Campagnes publicitaires et stratégies média.",
-          path: `/${locale}/solutions/advertising`,
-          isNew: true
-        }
-      ]
-    },
-    {
-      title: "Filiales",
-      path: `/${locale}/subsidiaries`,
-      children: [
-        {
-          title: "MPS",
-          description: "Production & Fabrication - Matérialisation de vos projets.",
-          path: `/${locale}/subsidiaries/mps`
-        },
-        {
-          title: "LABRIG'AD",
-          description: "Activation & Événementiel - Déploiement terrain.",
-          path: `/${locale}/subsidiaries/labrigad`
-        },
-        {
-          title: "GAMIUS",
-          description: "E-Sport & Gaming - Solutions pour l'univers vidéoludique.",
-          path: `/${locale}/subsidiaries/gamius`
-        },
-        {
-          title: "MOUJE-LEELL",
-          description: "Design & Mobilier - Créations sur mesure.",
-          path: `/${locale}/subsidiaries/moujeleell`
-        }
-      ]
-    },
-    {
-      title: "Réalisations",
-      path: `/${locale}/case-studies`,
-      children: [
-        {
-          title: "Portfolio",
-          description: "Découvrez nos projets et réalisations récentes.",
-          path: `/${locale}/case-studies`,
-          isNew: true
-        },
-        {
-          title: "Études de cas",
-          description: "Analyses détaillées de nos projets phares.",
-          path: `/${locale}/case-studies/client-cases`,
-          isNew: true
-        }
-      ]
-    },
-    {
-      title: "Contact",
-      path: `/${locale}/contact`,
-      children: []
-    }
-  ];
+  const buildPath = (path: string) => (path === '' ? '/' : `/${path}`);
 
-  // Determine if nav link is active
-  const isActiveLink = (path: string) => {
-    return pathname === path || pathname?.startsWith(path + '/');
+  const mainNav: MainNavItem[] = NAV_ITEMS.map((item) => ({
+    title: tNavigation(`${item.id}.label`),
+    path: buildPath(item.path ?? ''),
+    children:
+      item.children?.map((child) => ({
+        title: tNavigation(`${item.id}.children.${child.id}.title`),
+        description: tNavigation(`${item.id}.children.${child.id}.description`),
+        path: buildPath(child.path),
+        isNew: child.isNew,
+      })) ?? []
+  }));
+
+  const resolveLocalizedPath = (path: string) => {
+    if (path === '/') {
+      return `/${locale}`;
+    }
+
+    return `/${locale}${path}`;
   };
 
+  const isActiveLink = (path: string) => {
+    const localizedPath = resolveLocalizedPath(path);
+    return pathname === localizedPath || pathname.startsWith(`${localizedPath}/`);
+  };
+
+  const currentLocaleShortLabel = tHeader(`language.short.${locale as 'en' | 'fr'}` as const) ?? locale.toUpperCase();
+
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-black/90 backdrop-blur-md py-2 shadow-md' : 'bg-black py-4'
       }`}
@@ -212,14 +153,10 @@ export default function ModernHeader() {
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href={`/${locale}`} className="flex-shrink-0">
+          <Link href="/" locale={locale} className="flex-shrink-0">
             <div className="relative w-[140px] h-[40px]" style={{ position: 'relative' }}>
-              <Image 
-                src={scrolled 
-                  ? "/item_images/logo/genius-logo-small.svg" 
-                  : "/item_images/image/logo/genius-logo.png"
-                } 
+              <Image
+                src={scrolled ? '/item_images/logo/genius-logo-small.svg' : '/item_images/image/logo/genius-logo.png'}
                 alt="Genius Ad District"
                 fill
                 className="object-contain"
@@ -228,7 +165,6 @@ export default function ModernHeader() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:block">
             <NavigationMenu>
               <NavigationMenuList className="gap-2">
@@ -236,7 +172,7 @@ export default function ModernHeader() {
                   <NavigationMenuItem key={index}>
                     {item.children && item.children.length > 0 ? (
                       <>
-                        <NavigationMenuTrigger 
+                        <NavigationMenuTrigger
                           className={`${isActiveLink(item.path) ? 'text-[#D9D9D9]' : 'text-white'} hover:text-[#D9D9D9]`}
                         >
                           {item.title}
@@ -248,20 +184,19 @@ export default function ModernHeader() {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     href={child.path}
+                                    locale={locale}
                                     className="flex flex-col space-y-1 rounded-md p-3 hover:bg-[#D9D9D9]/5 transition-colors"
                                   >
                                     <div className="flex items-center gap-2">
                                       <span className="text-sm font-medium">{child.title}</span>
                                       {child.isNew && (
                                         <span className="rounded-full bg-[#D9D9D9]/10 px-2 py-0.5 text-xs text-[#D9D9D9]">
-                                          Nouveau
+                                          {tHeader('badges.new')}
                                         </span>
                                       )}
                                     </div>
                                     {child.description && (
-                                      <span className="line-clamp-2 text-xs text-muted-foreground">
-                                        {child.description}
-                                      </span>
+                                      <span className="line-clamp-2 text-xs text-muted-foreground">{child.description}</span>
                                     )}
                                   </Link>
                                 </NavigationMenuLink>
@@ -271,9 +206,12 @@ export default function ModernHeader() {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <Link 
+                      <Link
                         href={item.path}
-                        className={`${navigationMenuTriggerStyle()} ${isActiveLink(item.path) ? 'text-[#D9D9D9]' : 'text-white'} hover:text-[#D9D9D9]`}
+                        locale={locale}
+                        className={`${navigationMenuTriggerStyle()} ${
+                          isActiveLink(item.path) ? 'text-[#D9D9D9]' : 'text-white'
+                        } hover:text-[#D9D9D9]`}
                       >
                         {item.title}
                       </Link>
@@ -284,39 +222,32 @@ export default function ModernHeader() {
             </NavigationMenu>
           </div>
 
-          {/* Actions */}
           <div className="flex items-center gap-4">
-            {/* Language Selector */}
             <div className="hidden md:block">
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="text-white">
                       <Globe className="h-4 w-4 mr-1" />
-                      {locale === 'fr' ? 'FR' : 'EN'}
+                      {currentLocaleShortLabel}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[120px] gap-1 p-2">
-                        <li>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={pathname?.replace(`/${locale}`, '/fr') || '/fr'}
-                              className={`block rounded p-2 hover:bg-[#D9D9D9]/5 ${locale === 'fr' ? 'font-bold' : ''}`}
-                            >
-                              Français
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                        <li>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={pathname?.replace(`/${locale}`, '/en') || '/en'}
-                              className={`block rounded p-2 hover:bg-[#D9D9D9]/5 ${locale === 'en' ? 'font-bold' : ''}`}
-                            >
-                              English
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
+                      <ul className="grid w-[160px] gap-1 p-2">
+                        {(['fr', 'en'] as const).map((targetLocale) => (
+                          <li key={targetLocale}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={pathname || '/'}
+                                locale={targetLocale}
+                                className={`block rounded p-2 hover:bg-[#D9D9D9]/5 ${
+                                  locale === targetLocale ? 'font-bold' : ''
+                                }`}
+                              >
+                                {tLanguageNames(targetLocale)}
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
                       </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
@@ -324,16 +255,14 @@ export default function ModernHeader() {
               </NavigationMenu>
             </div>
 
-            {/* Contact Button */}
             <div className="hidden md:block">
               <Button variant="outline" size="sm" asChild>
-                <Link href={`/${locale}/contact`}>
-                  Nous contacter
+                <Link href="/contact" locale={locale}>
+                  {tHeader('contact')}
                 </Link>
               </Button>
             </div>
 
-            {/* Mobile Menu */}
             <div className="lg:hidden">
               <Sheet>
                 <SheetTrigger asChild>
@@ -344,9 +273,9 @@ export default function ModernHeader() {
                 <SheetContent side="right" className="bg-black border-neutral-800">
                   <div className="flex flex-col h-full">
                     <div className="flex items-center justify-between pb-4">
-                      <Link href={`/${locale}`} className="flex-shrink-0">
+                      <Link href="/" locale={locale} className="flex-shrink-0">
                         <div className="relative w-[120px] h-[35px]" style={{ position: 'relative' }}>
-                          <Image 
+                          <Image
                             src="/item_images/logo/genius-logo-small.svg"
                             alt="Genius Ad District"
                             fill
@@ -364,6 +293,7 @@ export default function ModernHeader() {
                           <li key={index}>
                             <Link
                               href={item.path}
+                              locale={locale}
                               className={`block py-2 text-lg ${
                                 isActiveLink(item.path) ? 'text-[#D9D9D9] font-medium' : 'text-white'
                               }`}
@@ -377,34 +307,27 @@ export default function ModernHeader() {
 
                     <div className="py-4">
                       <Separator className="bg-neutral-800 mb-4" />
-                      
-                      {/* Language Switcher in Mobile Menu */}
+
                       <div className="flex space-x-2 my-4">
-                        <Link
-                          href={pathname?.replace(`/${locale}`, '/fr') || '/fr'}
-                          className={`px-3 py-1 rounded-full border ${
-                            locale === 'fr' 
-                              ? 'border-white bg-white text-black' 
-                              : 'border-neutral-600 text-white'
-                          }`}
-                        >
-                          FR
-                        </Link>
-                        <Link
-                          href={pathname?.replace(`/${locale}`, '/en') || '/en'}
-                          className={`px-3 py-1 rounded-full border ${
-                            locale === 'en' 
-                              ? 'border-white bg-white text-black' 
-                              : 'border-neutral-600 text-white'
-                          }`}
-                        >
-                          EN
-                        </Link>
+                        {(['fr', 'en'] as const).map((targetLocale) => (
+                          <Link
+                            key={targetLocale}
+                            href={pathname || '/'}
+                            locale={targetLocale}
+                            className={`px-3 py-1 rounded-full border ${
+                              locale === targetLocale
+                                ? 'border-white bg-white text-black'
+                                : 'border-neutral-600 text-white'
+                            }`}
+                          >
+                            {tHeader(`language.short.${targetLocale}`)}
+                          </Link>
+                        ))}
                       </div>
-                      
+
                       <Button className="w-full" asChild>
-                        <Link href={`/${locale}/contact`}>
-                          Nous contacter
+                        <Link href="/contact" locale={locale}>
+                          {tHeader('contact')}
                         </Link>
                       </Button>
                     </div>
@@ -417,4 +340,4 @@ export default function ModernHeader() {
       </div>
     </header>
   );
-} 
+}

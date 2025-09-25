@@ -1,44 +1,48 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/navigation';
 import { ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-
-// Garder uniquement les liens nécessaires et actifs
-const footerLinks = [
-  {
-    title: 'Entreprise',
-    links: [
-      { label: 'Notre histoire', href: '/notre-histoire' },
-      { label: 'Nos valeurs', href: '/nos-valeurs' },
-      { label: 'Notre équipe', href: '/notre-equipe' },
-      { label: 'Expertise', href: '/expertise' },
-      { label: 'Projets', href: '/projets' },
-    ],
-  },
-  {
-    title: 'Filiales',
-    links: [
-      { label: 'MPS', href: '/mps' },
-      { label: 'Labrigad', href: '/labrigad' },
-      { label: 'Gamius', href: '/gamius' },
-      { label: 'Genius Lab', href: '/genius-lab' },
-    ],
-  },
-  {
-    title: 'Légal',
-    links: [
-      { label: 'Mentions légales', href: '/mentions-legales' },
-      { label: 'Politique de confidentialité', href: '/confidentialite' },
-      { label: 'Politique de cookies', href: '/cookies' },
-      { label: 'CGV', href: '/cgv' },
-    ],
-  },
-];
 
 export const AppleFooter = () => {
+  const locale = useLocale();
+  const tNavbar = useTranslations('navbar.menu');
+  const tFooter = useTranslations('footer');
+
+  const footerLinks = [
+    {
+      title: tFooter('sections.company.title'),
+      links: [
+        { label: tNavbar('about.links.history'), href: `/${locale}/a-propos/notre-histoire` },
+        { label: tNavbar('about.links.values'), href: `/${locale}/a-propos/nos-valeurs` },
+        { label: tNavbar('about.links.team'), href: `/${locale}/a-propos/notre-equipe` },
+        { label: tNavbar('about.links.expertise'), href: `/${locale}/a-propos/expertises` },
+        { label: tNavbar('projects.label'), href: `/${locale}/projets` },
+      ],
+    },
+    {
+      title: tFooter('sections.subsidiaries.title'),
+      links: [
+        { label: tNavbar('subsidiaries.links.mps'), href: `/${locale}/filiales/mps` },
+        { label: tNavbar('subsidiaries.links.labrigad'), href: `/${locale}/filiales/labrigad` },
+        { label: tNavbar('subsidiaries.links.gamius'), href: `/${locale}/filiales/gamius` },
+        { label: tNavbar('subsidiaries.links.moujeleell'), href: `/${locale}/filiales/moujeleell` },
+      ],
+    },
+    {
+      title: tFooter('sections.legal.title'),
+      links: [
+        { label: tFooter('sections.legal.links.legalNotice'), href: `/${locale}/mentions-legales` },
+        { label: tFooter('sections.legal.links.privacy'), href: `/${locale}/confidentialite` },
+        { label: tFooter('sections.legal.links.cookies'), href: `/${locale}/cookies` },
+        { label: tFooter('sections.legal.links.terms'), href: `/${locale}/cgv` },
+      ],
+    },
+  ];
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="border-t border-white/10 bg-black text-white">
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -70,26 +74,26 @@ export const AppleFooter = () => {
         {/* Bottom Bar simplifié */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/40 text-xs">
-            © {new Date().getFullYear()} Genius Ad District. Tous droits réservés.
+            {tFooter('bottom.copyright', { year: currentYear })}
           </p>
           <div className="flex space-x-6 items-center mt-4 md:mt-0">
-            <a 
-              href="https://www.linkedin.com/company/genius-ad-district/" 
+            <a
+              href="https://www.linkedin.com/company/genius-ad-district/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/60 hover:text-white text-xs transition-colors duration-200"
-              aria-label="LinkedIn"
+              aria-label={tFooter('social.linkedin')}
             >
-              LinkedIn
+              {tFooter('social.linkedin')}
             </a>
-            <a 
-              href="https://www.instagram.com/genius.ad.district.morocco/" 
+            <a
+              href="https://www.instagram.com/genius.ad.district.morocco/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/60 hover:text-white text-xs transition-colors duration-200"
-              aria-label="Instagram"
+              aria-label={tFooter('social.instagram')}
             >
-              Instagram
+              {tFooter('social.instagram')}
             </a>
           </div>
         </div>

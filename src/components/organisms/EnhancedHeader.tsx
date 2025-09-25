@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link as IntlLink } from '@/navigation';
 
 interface EnhancedHeaderProps {
@@ -17,6 +16,9 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
+  const tNav = useTranslations('common.navigation');
+  const tLanguage = useTranslations('common.languageSwitcher');
+  const tAccessibility = useTranslations('common.accessibility');
 
   // Handle scroll events
   useEffect(() => {
@@ -56,13 +58,21 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
 
   // Navigation links
   const navLinks = [
-    { name: locale === 'fr' ? 'Accueil' : 'Home', path: '/' },
-    { name: locale === 'fr' ? 'À propos' : 'About', path: '/about' },
-    { name: locale === 'fr' ? 'Filiales' : 'Subsidiaries', path: '/filiales' },
-    { name: locale === 'fr' ? 'Services' : 'Services', path: '/services' },
-    { name: locale === 'fr' ? 'Galerie' : 'Gallery', path: '/gallery' },
-    { name: locale === 'fr' ? 'Contact' : 'Contact', path: '/contact' },
+    { name: tNav('home'), path: '/' },
+    { name: tNav('about'), path: '/about' },
+    { name: tNav('subsidiaries'), path: '/filiales' },
+    { name: tNav('services'), path: '/services' },
+    { name: tNav('gallery'), path: '/gallery' },
+    { name: tNav('contact'), path: '/contact' },
   ];
+
+  const oppositeLocale = locale === 'fr' ? 'en' : 'fr';
+  const languageButtonLabel = oppositeLocale === 'fr'
+    ? tLanguage('switchToFrench')
+    : tLanguage('switchToEnglish');
+  const languageButtonShort = oppositeLocale === 'fr'
+    ? tLanguage('short.fr')
+    : tLanguage('short.en');
 
   // Animation variants
   const headerVariants = {
@@ -122,11 +132,11 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
       >
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="relative z-10">
+          <IntlLink href="/" locale={locale} className="relative z-10">
             <div className="flex items-center">
               <div className="relative w-10 h-10 mr-2">
-                <Image 
-                  src="/item_images/logo/logo_simplified.png" 
+                <Image
+                  src="/item_images/logo/logo_simplified.png"
                   alt="Genius Ad District"
                   fill
                   style={{ objectFit: "contain" }}
@@ -135,25 +145,29 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
               </div>
               <span className="font-bold text-xl">Genius Ad</span>
             </div>
-          </Link>
+          </IntlLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => {
-              const isActive = pathname === link.path || 
-                (pathname?.startsWith(link.path) && link.path !== '/');
+              const localizedPath = link.path === '/'
+                ? `/${locale}`
+                : `/${locale}${link.path}`;
+              const isActive = pathname === localizedPath ||
+                (pathname?.startsWith(localizedPath) && link.path !== '/');
               return (
-                <Link 
+                <IntlLink
                   key={link.path}
                   href={link.path}
+                  locale={locale}
                   className={`relative py-2 text-sm font-medium transition-colors duration-300 ${
-                    isActive 
-                      ? 'text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white' 
+                    isActive
+                      ? 'text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white'
                       : 'text-gray-300 hover:text-white hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-white/50'
                   }`}
                 >
                   {link.name}
-                </Link>
+                </IntlLink>
               );
             })}
           </nav>
@@ -161,9 +175,13 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
           {/* Language Switcher & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <div className="hidden sm:block">
-              <IntlLink href={pathname || '/'} locale={locale === 'fr' ? 'en' : 'fr'}>
-                <button className="px-2 py-1 text-sm text-gray-300 hover:text-white bg-transparent hover:bg-white/10 rounded transition-colors">
-                  {locale === 'fr' ? 'EN' : 'FR'}
+              <IntlLink href={pathname || '/'} locale={oppositeLocale}>
+                <button
+                  className="px-2 py-1 text-sm text-gray-300 hover:text-white bg-transparent hover:bg-white/10 rounded transition-colors"
+                  aria-label={languageButtonLabel}
+                  title={languageButtonLabel}
+                >
+                  {languageButtonShort}
                 </button>
               </IntlLink>
             </div>
@@ -172,7 +190,7 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMenuOpen ? tAccessibility('closeMenu') : tAccessibility('openMenu')}
             >
               <div className="relative w-6 h-5">
                 <span 
@@ -216,20 +234,24 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
             <div className="container mx-auto px-4 py-8 flex flex-col h-full">
               <nav className="flex flex-col space-y-6 text-center mb-auto">
                 {navLinks.map((link) => {
-                  const isActive = pathname === link.path || 
-                    (pathname?.startsWith(link.path) && link.path !== '/');
-                  
+                  const localizedPath = link.path === '/'
+                    ? `/${locale}`
+                    : `/${locale}${link.path}`;
+                  const isActive = pathname === localizedPath ||
+                    (pathname?.startsWith(localizedPath) && link.path !== '/');
+
                   return (
                     <motion.div key={link.path} variants={itemVariants}>
-                      <Link 
+                      <IntlLink
                         href={link.path}
+                        locale={locale}
                         className={`block text-xl font-medium transition-colors duration-300 ${
                           isActive ? 'text-white' : 'text-gray-400 hover:text-white'
                         }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {link.name}
-                      </Link>
+                      </IntlLink>
                     </motion.div>
                   );
                 })}
@@ -237,9 +259,12 @@ const EnhancedHeader: React.FC<EnhancedHeaderProps> = ({ transparent = false }) 
               
               {/* Mobile Language Switcher */}
               <motion.div variants={itemVariants} className="pt-4 border-t border-gray-800">
-                <IntlLink href={pathname || '/'} locale={locale === 'fr' ? 'en' : 'fr'}>
-                  <button className="w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors">
-                    {locale === 'fr' ? 'Switch to English' : 'Passer en Français'}
+                <IntlLink href={pathname || '/'} locale={oppositeLocale}>
+                  <button
+                    className="w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors"
+                    aria-label={languageButtonLabel}
+                  >
+                    {languageButtonLabel}
                   </button>
                 </IntlLink>
               </motion.div>

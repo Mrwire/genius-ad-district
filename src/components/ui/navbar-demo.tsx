@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { Info, Building2, Briefcase, Code2, Layers, ChevronDown, ChevronUp } from 'lucide-react';
-import { useParams } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Link from 'next/link';
+import { Link } from '@/navigation';
 
 // Interface pour les sous-sites des filiales
 export interface FilialeSite {
@@ -73,12 +74,12 @@ const AnimatedMenuIcon = ({ isOpen }: { isOpen: boolean }) => (
 );
 
 // Mapping des icônes pour les éléments du menu
-const menuIcons: Record<string, React.ReactNode> = {
-  'À propos': <Info className="w-5 h-5 mr-2" />,
-  'Filiales': <Building2 className="w-5 h-5 mr-2" />,
-  'Services': <Briefcase className="w-5 h-5 mr-2" />,
-  'Expertises': <Code2 className="w-5 h-5 mr-2" />,
-  'Projets': <Layers className="w-5 h-5 mr-2" />,
+const menuIcons: Record<string, ReactNode> = {
+  about: <Info className="w-5 h-5 mr-2" />,
+  subsidiaries: <Building2 className="w-5 h-5 mr-2" />,
+  services: <Briefcase className="w-5 h-5 mr-2" />,
+  expertise: <Code2 className="w-5 h-5 mr-2" />,
+  projects: <Layers className="w-5 h-5 mr-2" />,
 };
 
 export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNavbarProps) {
@@ -86,7 +87,10 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Obtenir les informations de la locale depuis les paramètres d'URL
-  const { locale = 'fr' } = useParams();
+  const locale = useLocale();
+  const pathname = usePathname();
+  const tNavbar = useTranslations('navbar.menu');
+  const tLanguage = useTranslations('common.languageSwitcher');
   
   // Obtenir les données de la filiale actuelle
   const filialeData = filiales[currentFiliale] || filiales.genius;
@@ -107,38 +111,44 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
   // Structure du menu basée sur le sitemap
   const navItems = [
     {
-      name: locale === 'fr' ? 'À propos' : 'About',
-      url: null, // Make non-clickable
+      id: 'about',
+      name: tNavbar('about.label'),
+      url: null as string | null,
       icon: Info,
       submenu: [
-        { name: locale === 'fr' ? 'Notre histoire' : 'Our History', url: `/${locale}/a-propos/notre-histoire` },
-        { name: locale === 'fr' ? 'Notre équipe' : 'Our Team', url: `/${locale}/a-propos/notre-equipe` },
-        { name: locale === 'fr' ? 'Nos valeurs' : 'Our Values', url: `/${locale}/a-propos/nos-valeurs` },
-        { name: locale === 'fr' ? 'Expertises' : 'Expertise', url: `/${locale}/a-propos/expertises` },
+        { id: 'history', name: tNavbar('about.links.history'), url: `/${locale}/a-propos/notre-histoire` },
+        { id: 'team', name: tNavbar('about.links.team'), url: `/${locale}/a-propos/notre-equipe` },
+        { id: 'values', name: tNavbar('about.links.values'), url: `/${locale}/a-propos/nos-valeurs` },
+        { id: 'expertise', name: tNavbar('about.links.expertise'), url: `/${locale}/a-propos/expertises` },
       ],
     },
     {
-      name: locale === 'fr' ? 'Filiales' : 'Subsidiaries',
-      url: null, // Make non-clickable
+      id: 'subsidiaries',
+      name: tNavbar('subsidiaries.label'),
+      url: null as string | null,
       icon: Building2,
       submenu: [
-        { name: 'MPS', url: `/${locale}/filiales/mps` },
-        { name: "LABRIG'Ad", url: `/${locale}/filiales/labrigad` },
-        { name: 'Gamius', url: `/${locale}/filiales/gamius` },
-        { name: 'Mouje & Leell', url: `/${locale}/filiales/moujeleell` },
+        { id: 'mps', name: tNavbar('subsidiaries.links.mps'), url: `/${locale}/filiales/mps` },
+        { id: 'labrigad', name: tNavbar("subsidiaries.links.labrigad"), url: `/${locale}/filiales/labrigad` },
+        { id: 'gamius', name: tNavbar('subsidiaries.links.gamius'), url: `/${locale}/filiales/gamius` },
+        { id: 'moujeleell', name: tNavbar('subsidiaries.links.moujeleell'), url: `/${locale}/filiales/moujeleell` },
       ]
     },
     {
-      name: locale === 'fr' ? 'Services' : 'Services',
+      id: 'services',
+      name: tNavbar('services.label'),
       url: `/${locale}/services`,
       icon: Briefcase
     },
     {
-      name: locale === 'fr' ? 'Projets' : 'Projects',
+      id: 'projects',
+      name: tNavbar('projects.label'),
       url: `/${locale}/projets`,
       icon: Layers
     },
   ];
+
+  const languages: Array<'fr' | 'en'> = ['fr', 'en'];
 
   return (
     <header className={cn(
@@ -211,24 +221,32 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
           
           {/* Language Switcher - Desktop (properly positioned on right) */}
           <div className="hidden md:flex items-center space-x-2 ml-auto">
-            <Link 
-              href="/fr"
-              className={cn(
-                "px-3 py-1 text-sm border border-white/20 rounded-md hover:bg-white/10 transition-colors",
-                locale === 'fr' ? "bg-white text-black border-white" : "text-white"
-              )}
-            >
-              FR
-            </Link>
-            <Link 
-              href="/en"
-              className={cn(
-                "px-3 py-1 text-sm border border-white/20 rounded-md hover:bg-white/10 transition-colors",
-                locale === 'en' ? "bg-white text-black border-white" : "text-white"
-              )}
-            >
-              EN
-            </Link>
+            {languages.map((lang) => {
+              const isActive = locale === lang;
+              const shortLabel = tLanguage(`short.${lang}` as const);
+              const languageName = tLanguage(`languageNames.${lang}` as const);
+              const ariaLabel = isActive
+                ? tLanguage('current', { language: languageName })
+                : lang === 'fr'
+                  ? tLanguage('switchToFrench')
+                  : tLanguage('switchToEnglish');
+
+              return (
+                <Link
+                  key={lang}
+                  href={pathname || '/'}
+                  locale={lang}
+                  className={cn(
+                    "px-3 py-1 text-sm border border-white/20 rounded-md hover:bg-white/10 transition-colors",
+                    isActive ? "bg-white text-black border-white" : "text-white"
+                  )}
+                  aria-label={ariaLabel}
+                  title={ariaLabel}
+                >
+                  {shortLabel}
+                </Link>
+              );
+            })}
           </div>
           
           {/* Mobile menu button - centered */}
@@ -276,7 +294,7 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
             {navItems.map((item) => {
               const [subMenuOpen, setSubMenuOpen] = useState(false);
               return (
-                <div key={item.name} className="border border-white/10 rounded-lg overflow-hidden">
+                <div key={item.id} className="border border-white/10 rounded-lg overflow-hidden">
                   <div className="flex items-center justify-between">
                     {item.url ? (
                       <Link
@@ -292,7 +310,7 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
                         }}
                       >
                         <span className="flex items-center">
-                          {menuIcons[item.name]}
+                          {menuIcons[item.id]}
                           {item.name}
                         </span>
                       </Link>
@@ -302,7 +320,7 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
                         onClick={() => setSubMenuOpen(!subMenuOpen)}
                       >
                         <span className="flex items-center">
-                          {menuIcons[item.name]}
+                          {menuIcons[item.id]}
                           {item.name}
                         </span>
                       </button>
@@ -331,7 +349,7 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
                     >
                       {item.submenu.map((sub) => (
                         <Link
-                          key={sub.name}
+                          key={sub.id}
                           href={sub.url}
                           className="block px-8 py-3 text-sm text-white hover:bg-white/10 transition-colors"
                           onClick={() => setMobileMenuOpen(false)}
@@ -349,30 +367,35 @@ export function ModernNavbar({ className, currentFiliale = 'genius' }: ModernNav
           {/* Language switcher - Mobile */}
           <div className="mt-auto pt-4 border-t border-white/10">
             <div className="flex justify-center space-x-4">
-              <Link 
-                href="/fr"
-                className={cn(
-                  "px-5 py-2 rounded-full text-sm font-medium",
-                  locale === 'fr' 
-                    ? "bg-white text-black" 
-                    : "bg-black/50 text-white border border-white/20"
-                )}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                FR
-              </Link>
-              <Link 
-                href="/en"
-                className={cn(
-                  "px-5 py-2 rounded-full text-sm font-medium",
-                  locale === 'en' 
-                    ? "bg-white text-black" 
-                    : "bg-black/50 text-white border border-white/20"
-                )}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                EN
-              </Link>
+              {languages.map((lang) => {
+                const isActive = locale === lang;
+                const shortLabel = tLanguage(`short.${lang}` as const);
+                const languageName = tLanguage(`languageNames.${lang}` as const);
+                const ariaLabel = isActive
+                  ? tLanguage('current', { language: languageName })
+                  : lang === 'fr'
+                    ? tLanguage('switchToFrench')
+                    : tLanguage('switchToEnglish');
+
+                return (
+                  <Link
+                    key={lang}
+                    href={pathname || '/'}
+                    locale={lang}
+                    className={cn(
+                      "px-5 py-2 rounded-full text-sm font-medium",
+                      isActive
+                        ? "bg-white text-black"
+                        : "bg-black/50 text-white border border-white/20"
+                    )}
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-label={ariaLabel}
+                    title={ariaLabel}
+                  >
+                    {shortLabel}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>

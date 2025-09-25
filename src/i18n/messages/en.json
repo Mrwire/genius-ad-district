@@ -1,12 +1,28 @@
 {
   "common": {
     "languageName": "English",
-    "switchLanguage": "Switch to French",
+    "switchLanguage": "Switch language",
+    "languageSwitcher": {
+      "switchToEnglish": "Switch to English",
+      "switchToFrench": "Switch to French",
+      "short": {
+        "en": "EN",
+        "fr": "FR"
+      },
+      "languageNames": {
+        "en": "English",
+        "fr": "French"
+      },
+      "current": "Current language: {language}"
+    },
     "navigation": {
       "home": "Home",
       "about": "About",
       "caseStudies": "Case Studies",
       "subsidiaries": "Subsidiaries",
+      "services": "Services",
+      "projects": "Projects",
+      "gallery": "Gallery",
       "contact": "Contact"
     },
     "footer": {
@@ -32,6 +48,10 @@
       "cancel": "Cancel",
       "save": "Save"
     },
+    "accessibility": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
     "contact": {
       "title": "Contact",
       "form": {
@@ -41,6 +61,93 @@
         "subject": "Subject",
         "phone": "Phone"
       }
+    }
+  },
+  "navbar": {
+    "menu": {
+      "about": {
+        "label": "About",
+        "links": {
+          "history": "Our History",
+          "team": "Our Team",
+          "values": "Our Values",
+          "expertise": "Expertise"
+        }
+      },
+      "subsidiaries": {
+        "label": "Subsidiaries",
+        "links": {
+          "mps": "MPS",
+          "labrigad": "LABRIG'Ad",
+          "gamius": "Gamius",
+          "moujeleell": "Mouje & Leell"
+        }
+      },
+      "services": {
+        "label": "Services"
+      },
+      "projects": {
+        "label": "Projects"
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "company": {
+        "title": "Company"
+      },
+      "subsidiaries": {
+        "title": "Subsidiaries"
+      },
+      "legal": {
+        "title": "Legal",
+        "links": {
+          "legalNotice": "Legal Notice",
+          "privacy": "Privacy Policy",
+          "cookies": "Cookie Policy",
+          "terms": "Terms & Conditions"
+        }
+      }
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "bottom": {
+      "copyright": "© {year} Genius Ad District. All rights reserved."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "COMMUNICATION AND PRODUCTION AGENCY",
+      "subtitle": "CORPORATE & PUBLIC EVENTS · ALTERNATIVE MARKETING · ROADSHOWS & ACTIVATIONS",
+      "cta": "Discover Excellence"
+    }
+  },
+  "gallery": {
+    "page": {
+      "title": "OUR GALLERY",
+      "subtitle": "Explore our portfolio of creative works and recent achievements",
+      "sectionTitle": "EXPLORE OUR PROJECTS",
+      "sectionSubtitle": "Filter by category to discover our different achievements"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "modal": {
+      "category": "CATEGORY",
+      "client": "CLIENT",
+      "year": "YEAR",
+      "about": "About the project",
+      "gallery": "IMAGE GALLERY"
+    },
+    "cta": "View all projects"
+  },
+  "subsidiaryHeader": {
+    "banner": {
+      "message": "You are viewing the {subsidiary} website.",
+      "return": "Return to Genius AD District",
+      "dismiss": "Close banner"
     }
   },
   "homepage": {
@@ -2300,5 +2407,567 @@
       "caseStudies": "Case studies should emphasize creative journey in French and measurable outcomes in English.",
       "about": "Company narrative should emphasize cultural heritage in French and global expertise in English."
     }
+  },
+  "header": {
+    "contact": "Contact us",
+    "badges": {
+      "new": "New"
+    },
+    "language": {
+      "short": {
+        "fr": "FR",
+        "en": "EN"
+      }
+    },
+    "navigation": {
+      "about": {
+        "label": "About",
+        "children": {
+          "history": {
+            "title": "Our History & Values",
+            "description": "Discover our journey, guiding principles and vision."
+          },
+          "team": {
+            "title": "Our Team",
+            "description": "Meet the talents who make the difference for our clients."
+          },
+          "careers": {
+            "title": "Join Us",
+            "description": "Explore our career opportunities and apply to join our crew."
+          }
+        }
+      },
+      "expertises": {
+        "label": "Expertise",
+        "children": {
+          "branding": {
+            "title": "Branding",
+            "description": "Brand strategies and distinctive visual identities."
+          },
+          "digital": {
+            "title": "Digital & Web",
+            "description": "Digital solutions and web development that engage users."
+          },
+          "events": {
+            "title": "Events",
+            "description": "Event design and production that create memorable experiences."
+          },
+          "production": {
+            "title": "Production & Print",
+            "description": "Premium production and print services for every touchpoint."
+          },
+          "marketing": {
+            "title": "Marketing & Strategy",
+            "description": "Communication plans and marketing strategies with measurable impact."
+          }
+        }
+      },
+      "solutions": {
+        "label": "Solutions",
+        "children": {
+          "brandActivation": {
+            "title": "Brand Activation",
+            "description": "Activation strategies that strengthen your brand in the field."
+          },
+          "roadshow": {
+            "title": "Roadshow",
+            "description": "Touring events and promotional roadshows across your markets."
+          },
+          "standDesign": {
+            "title": "Booth & Spatial Design",
+            "description": "Custom booth and spatial design tailored to your objectives."
+          },
+          "esport": {
+            "title": "E-sport & Gaming",
+            "description": "Creative concepts for gaming communities and esports audiences."
+          },
+          "advertising": {
+            "title": "Advertising & Media",
+            "description": "Media planning and advertising campaigns with 360° reach."
+          }
+        }
+      },
+      "subsidiaries": {
+        "label": "Subsidiaries",
+        "children": {
+          "mps": {
+            "title": "MPS",
+            "description": "Production and fabrication — materialising ambitious ideas."
+          },
+          "labrigad": {
+            "title": "LABRIG'Ad",
+            "description": "Activation and events — flawless on-the-ground deployment."
+          },
+          "gamius": {
+            "title": "Gamius",
+            "description": "Esports and gaming — experiences for new generation audiences."
+          },
+          "moujeleell": {
+            "title": "Mouje & Leell",
+            "description": "Design and furniture — bespoke creations and scenography."
+          }
+        }
+      },
+      "caseStudies": {
+        "label": "Case Studies",
+        "children": {
+          "portfolio": {
+            "title": "Portfolio",
+            "description": "Discover our latest projects and signature productions."
+          },
+          "clientCases": {
+            "title": "Client Case Studies",
+            "description": "In-depth insight into our flagship collaborations."
+          }
+        }
+      },
+      "contact": {
+        "label": "Contact"
+      }
+    }
+  },
+  "legal": {
+    "cgv": {
+      "metadata": {
+        "title": "Terms and Conditions of Sale - Genius Ad District",
+        "description": "Terms and conditions governing the services provided by Genius Ad District."
+      },
+      "title": "Terms and Conditions of Sale",
+      "effectiveDate": "Effective as of October 1, 2023",
+      "intro": [
+        {
+          "type": "paragraph",
+          "text": "These general terms and conditions of sale (the \"T&Cs\") apply without restriction or reservation to all services provided by Genius Ad District (the \"Vendor\") to its clients (the \"Buyer\") via the website genius-ad-district.com."
+        },
+        {
+          "type": "paragraph",
+          "text": "Placing an order implies the Buyer's full and unconditional acceptance of these T&Cs."
+        }
+      ],
+      "sections": [
+        {
+          "title": "1. Purpose",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "These T&Cs define the terms and conditions governing the services offered by Genius Ad District to its clients."
+            }
+          ]
+        },
+        {
+          "title": "2. Pricing",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The prices of our services are quoted in euros, inclusive of all applicable taxes (VAT and any other taxes)."
+            },
+            {
+              "type": "paragraph",
+              "text": "Genius Ad District reserves the right to modify its prices at any time; services are invoiced at the rate in force when the order is recorded."
+            }
+          ]
+        },
+        {
+          "title": "3. Orders",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To place an order, the Buyer must complete the online order form. Validation of the order implies acceptance of these T&Cs."
+            },
+            {
+              "type": "paragraph",
+              "text": "The Vendor reserves the right to cancel or refuse any order from a Buyer with whom there is a dispute relating to the payment of a previous order."
+            }
+          ]
+        },
+        {
+          "title": "4. Payment terms",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Payment for services is due immediately when the order is placed."
+            },
+            {
+              "type": "list",
+              "items": [
+                "By credit card via our secure payment platform",
+                "By bank transfer",
+                "By any other payment method offered at the time of ordering"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5. Performance deadlines",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Service deadlines are indicated when the order is placed. They are provided for guidance and may vary according to the Vendor's workload."
+            },
+            {
+              "type": "paragraph",
+              "text": "In the event of a delay of more than 30 days beyond the agreed delivery date, and after a formal notice remaining unanswered, the Buyer may cancel the contract and obtain a refund for the order without claiming damages."
+            }
+          ]
+        },
+        {
+          "title": "6. Right of withdrawal",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In accordance with Article L.221-18 of the French Consumer Code, the Buyer has a period of 14 days from the conclusion of the contract to exercise the right of withdrawal without having to justify reasons or pay penalties."
+            }
+          ]
+        },
+        {
+          "title": "7. Intellectual property",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "All elements of the website genius-ad-district.com and the services delivered remain the exclusive intellectual property of Genius Ad District or its partners. No transfer of intellectual property rights is granted through these T&Cs."
+            }
+          ]
+        },
+        {
+          "title": "8. Personal data",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The personal data collected when an order is placed is necessary for processing it. They are processed by Genius Ad District and may be shared with service providers strictly involved in fulfilling the order."
+            }
+          ]
+        },
+        {
+          "title": "9. Governing law and disputes",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "These T&Cs are governed by French law."
+            },
+            {
+              "type": "paragraph",
+              "text": "In the event of a dispute, the French courts shall have exclusive jurisdiction."
+            }
+          ]
+        }
+      ],
+      "contact": {
+        "title": "10. Contact",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "For any question or claim, please contact us:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Email: contact@genius-ad-district.com",
+              "Phone: +212 (0)5 22 00 00 00",
+              "Postal address: Genius Ad District, Casablanca, Morocco"
+            ]
+          }
+        ]
+      }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "Privacy Policy - Genius Ad District",
+        "description": "Privacy policy detailing how Genius Ad District collects and protects personal data."
+      },
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: October 1, 2023",
+      "intro": [
+        {
+          "type": "paragraph",
+          "text": "Genius Ad District (\"we\", \"us\" or \"our\") is committed to protecting your privacy. This policy explains how we collect, use and safeguard your personal data."
+        },
+        {
+          "type": "paragraph",
+          "text": "We encourage you to read this policy carefully to understand how your information is processed."
+        }
+      ],
+      "sections": [
+        {
+          "title": "1. Data we collect",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "We may collect and process the following data:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Information you provide when filling out forms on our website",
+                "Details of your visits and the resources you access",
+                "Information you share when contacting us",
+                "Location data and usage analytics"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "2. Use of data",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "We use the information we collect to:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Deliver and improve our services",
+                "Contact you about our services",
+                "Personalise your experience on our website",
+                "Respond to your requests and enquiries",
+                "Send marketing communications when you have consented"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "3. Data sharing",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "We do not sell or rent your personal data to third parties. We may share your information with:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Service providers who help us operate our business",
+                "Competent authorities when required by law",
+                "Companies involved in a merger or acquisition of Genius Ad District"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "4. Your rights",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have the right to:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Access your personal data",
+                "Request rectification or deletion of your data",
+                "Object to the processing of your data",
+                "Request restriction of processing",
+                "Request portability of your data",
+                "Withdraw your consent at any time"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "To exercise these rights, please contact us at contact@genius-ad-district.com."
+            }
+          ]
+        },
+        {
+          "title": "5. Cookies",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Our website uses cookies to enhance your browsing experience. You can configure your browser to refuse all cookies or to notify you when a cookie is set."
+            }
+          ]
+        },
+        {
+          "title": "6. Changes to this policy",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "We may update this privacy policy from time to time. We encourage you to review this page regularly to stay informed of any changes."
+            }
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "metadata": {
+        "title": "Cookie Policy - Genius Ad District",
+        "description": "Information about the use of cookies on the Genius Ad District website."
+      },
+      "title": "Cookie Policy",
+      "lastUpdated": "Last updated: October 1, 2023",
+      "intro": [
+        {
+          "type": "paragraph",
+          "text": "This cookie policy explains what cookies are, how we use them and how you can manage them when visiting genius-ad-district.com."
+        }
+      ],
+      "sections": [
+        {
+          "title": "1. What are cookies?",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Cookies are small text files stored on your device (computer, tablet or mobile) when you visit a website. They are widely used to make websites work more efficiently and to provide information to site owners."
+            }
+          ]
+        },
+        {
+          "title": "2. Types of cookies we use",
+          "subsections": [
+            {
+              "title": "Essential cookies",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "These cookies are necessary for our website to function properly. They enable core functionalities such as page navigation and access to secure areas."
+                }
+              ]
+            },
+            {
+              "title": "Performance cookies",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "These cookies collect information about how visitors use our site, such as the most visited pages, to help us improve performance."
+                }
+              ]
+            },
+            {
+              "title": "Functionality cookies",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "These cookies allow our site to remember your choices (such as language or region) and provide enhanced, more personalised features."
+                }
+              ]
+            },
+            {
+              "title": "Targeting cookies",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "These cookies record your visit to our site, the pages you view and the links you follow so that we can deliver more relevant advertising."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "3. Managing cookies",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You can manage cookie preferences through your browser settings. Useful resources include:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Google Chrome: https://support.google.com/chrome/answer/95647",
+                "Mozilla Firefox: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop",
+                "Safari: https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac",
+                "Microsoft Edge: https://support.microsoft.com/en-us/topic/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Please note that disabling certain cookies may affect your browsing experience."
+            }
+          ]
+        },
+        {
+          "title": "4. Consent",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "By continuing to use our site, you consent to the use of cookies in accordance with this policy. If you do not agree, please adjust your browser settings or refrain from using our site."
+            }
+          ]
+        },
+        {
+          "title": "5. Contact",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "If you have any questions about our cookie policy, please contact us at contact@genius-ad-district.com."
+            }
+          ]
+        }
+      ]
+    },
+    "legalNotice": {
+      "metadata": {
+        "title": "Legal Notice - Genius Ad District",
+        "description": "Legal notice and corporate information about Genius Ad District."
+      },
+      "title": "Legal Notice",
+      "sections": [
+        {
+          "title": "1. Website publisher",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The website genius-ad-district.com is published by Genius Ad District, a company headquartered in Casablanca, Morocco."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Registered office: Casablanca, Morocco",
+                "Phone: +212 (0)5 22 00 00 00",
+                "Email: contact@genius-ad-district.com",
+                "Share capital: 1 000 000 MAD",
+                "Trade register: RC Casablanca 123456",
+                "VAT number: MA1234567890"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "2. Publication director",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Publication director: Genius Ad District Management Team."
+            }
+          ]
+        },
+        {
+          "title": "3. Hosting",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The site is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States."
+            },
+            {
+              "type": "paragraph",
+              "text": "Phone: +1 (559) 432-5700"
+            }
+          ]
+        },
+        {
+          "title": "4. Intellectual property",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "All elements of the site (texts, images, logos, etc.) are the exclusive property of Genius Ad District or its partners. Any reproduction, representation, modification or distribution of all or part of the site without prior written authorisation is strictly prohibited."
+            }
+          ]
+        },
+        {
+          "title": "5. Personal data",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In accordance with French data protection law and the GDPR, you have the right to access, rectify, oppose and delete your personal data by contacting contact@genius-ad-district.com."
+            }
+          ]
+        },
+        {
+          "title": "6. Governing law",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "These legal notices are governed by French law. In case of dispute, the French courts shall have sole jurisdiction."
+            }
+          ]
+        }
+      ]
+    }
   }
-} 
+}
