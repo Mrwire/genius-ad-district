@@ -2,11 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useLocale } from 'next-intl';
-import { Link as IntlLink } from '@/navigation';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/navigation';
 import { filiales } from '@/components/ui/navbar-demo';
 import { AlertCircle } from 'lucide-react';
 
@@ -24,6 +22,10 @@ const SubsidiaryHeader: React.FC<SubsidiaryHeaderProps> = ({
   const [showReturnBanner, setShowReturnBanner] = useState(true);
   const pathname = usePathname();
   const locale = useLocale();
+  const tNav = useTranslations('common.navigation');
+  const tLanguage = useTranslations('common.languageSwitcher');
+  const tAccessibility = useTranslations('common.accessibility');
+  const tBanner = useTranslations('subsidiaryHeader.banner');
   
   const subsidiaryData = filiales[subsidiarySlug] || filiales.genius;
 
@@ -65,11 +67,19 @@ const SubsidiaryHeader: React.FC<SubsidiaryHeaderProps> = ({
 
   // Navigation links - these can be customized per subsidiary
   const navLinks = [
-    { name: locale === 'fr' ? 'Accueil' : 'Home', path: `/filiales/${subsidiarySlug}` },
-    { name: locale === 'fr' ? 'Services' : 'Services', path: `/filiales/${subsidiarySlug}/services` },
-    { name: locale === 'fr' ? 'Projets' : 'Projects', path: `/filiales/${subsidiarySlug}/projects` },
-    { name: locale === 'fr' ? 'Contact' : 'Contact', path: '/contact' },
+    { name: tNav('home'), path: `/filiales/${subsidiarySlug}` },
+    { name: tNav('services'), path: `/filiales/${subsidiarySlug}/services` },
+    { name: tNav('projects'), path: `/filiales/${subsidiarySlug}/projects` },
+    { name: tNav('contact'), path: '/contact' },
   ];
+
+  const oppositeLocale = locale === 'fr' ? 'en' : 'fr';
+  const languageButtonLabel = oppositeLocale === 'fr'
+    ? tLanguage('switchToFrench')
+    : tLanguage('switchToEnglish');
+  const languageButtonShort = oppositeLocale === 'fr'
+    ? tLanguage('short.fr')
+    : tLanguage('short.en');
 
   // Animation variants
   const headerVariants = {
@@ -146,19 +156,16 @@ const SubsidiaryHeader: React.FC<SubsidiaryHeaderProps> = ({
             <div className="flex items-center space-x-2 text-sm">
               <AlertCircle className="w-4 h-4" />
               <span>
-                {locale === 'fr' 
-                  ? 'Vous êtes sur le site de ' 
-                  : 'You are on the '} 
-                <strong>{subsidiaryData.name}</strong> 
-                {locale === 'fr' ? '. ' : ' website. '}
+                {tBanner('message', { subsidiary: subsidiaryData.name })}{' '}
                 <Link href="/" className="underline hover:text-white">
-                  {locale === 'fr' ? 'Retourner à Genius AD District' : 'Return to Genius AD District'}
+                  {tBanner('return')}
                 </Link>
               </span>
             </div>
-            <button 
+            <button
               onClick={() => setShowReturnBanner(false)}
               className="text-white/70 hover:text-white"
+              aria-label={tBanner('dismiss')}
             >
               ×
             </button>
@@ -219,18 +226,22 @@ const SubsidiaryHeader: React.FC<SubsidiaryHeaderProps> = ({
             {/* Language Switcher & Mobile Menu Button */}
             <div className="flex items-center space-x-4">
               <div className="hidden sm:block">
-                <IntlLink href={pathname || '/'} locale={locale === 'fr' ? 'en' : 'fr'}>
-                  <button className="px-2 py-1 text-sm text-gray-300 hover:text-white bg-transparent hover:bg-white/10 rounded transition-colors">
-                    {locale === 'fr' ? 'EN' : 'FR'}
+                <Link href={pathname || '/'} locale={oppositeLocale}>
+                  <button
+                    className="px-2 py-1 text-sm text-gray-300 hover:text-white bg-transparent hover:bg-white/10 rounded transition-colors"
+                    aria-label={languageButtonLabel}
+                    title={languageButtonLabel}
+                  >
+                    {languageButtonShort}
                   </button>
-                </IntlLink>
+                </Link>
               </div>
               
               {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center"
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-label={isMenuOpen ? tAccessibility('closeMenu') : tAccessibility('openMenu')}
               >
                 <div className="relative w-6 h-5">
                   <span 
@@ -293,23 +304,26 @@ const SubsidiaryHeader: React.FC<SubsidiaryHeaderProps> = ({
                   
                   {/* Return to Genius Link in Mobile Menu */}
                   <motion.div variants={itemVariants}>
-                    <Link 
+                    <Link
                       href="/"
                       className="block text-xl font-medium text-gray-400 hover:text-white transition-colors duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      {locale === 'fr' ? 'Genius AD District' : 'Genius AD District'}
+                      {tBanner('return')}
                     </Link>
                   </motion.div>
                 </nav>
                 
                 {/* Mobile Language Switcher */}
                 <motion.div variants={itemVariants} className="pt-4 border-t border-gray-800">
-                  <IntlLink href={pathname || '/'} locale={locale === 'fr' ? 'en' : 'fr'}>
-                    <button className="w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors">
-                      {locale === 'fr' ? 'Switch to English' : 'Passer en Français'}
+                  <Link href={pathname || '/'} locale={oppositeLocale}>
+                    <button
+                      className="w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors"
+                      aria-label={languageButtonLabel}
+                    >
+                      {languageButtonLabel}
                     </button>
-                  </IntlLink>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>

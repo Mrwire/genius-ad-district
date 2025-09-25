@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 // Components effectivement utilisés dans la homepage
 import { CaseStudySection } from '@/components/organisms/CaseStudySection';
@@ -25,7 +25,7 @@ import ShadcnExpertiseGrid from '@/components/organisms/ShadcnExpertiseGrid';
 // import EnhancedTabLayout supprimé
 
 export default function HomePage() {
-  const { locale } = useParams();
+  const tHero = useTranslations('home.hero');
 
   return (
     <BaseLayout>
@@ -34,10 +34,10 @@ export default function HomePage() {
 
         <main className="flex flex-col">
         {/* 01 - Background Paths Hero Section */}
-        <BackgroundPaths 
-          title="AGENCE DE COMMUNICATION ET PRODUCTION" 
-          subtitle="ÉVÉNEMENTIEL CORPORATE ET GRAND PUBLIC · MARKETING ALTERNATIF · ROADSHOW ET ACTIVATIONS"
-          buttonText={locale === 'fr' ? 'Découvrir l\'Excellence' : 'Discover Excellence'}
+        <BackgroundPaths
+          title={tHero('title')}
+          subtitle={tHero('subtitle')}
+          buttonText={tHero('cta')}
         />
         
         {/* 02 - Modern Mantra Section - "Genius, it's not just a word" */}
